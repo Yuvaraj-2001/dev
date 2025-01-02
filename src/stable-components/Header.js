@@ -1,7 +1,7 @@
 
 
 export default function Header(){
-    return <div className="p-5 bg-gray-800">
+    return <div className="py-5 px-20 bg-gray-800">
         <div className="flex justify-between text-center">
             <div className="text-white text-2xl">YUVARAJ</div>
             <nav className="text-white">
