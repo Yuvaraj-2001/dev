@@ -8,10 +8,11 @@ export default function Header(){
                 <ul className="flex justify-start gap-2 text-slate-300 cursor-pointer">
                     <li className="pr-2 hover:text-white"><span className="text-purple-500">#</span>Home</li>
                     <li className="pr-2 hover:text-white"><span className="text-purple-500">#</span>Portfolio</li>
+                    <li className="pr-2 hover:text-white"><span className="text-purple-500">#</span>About Me</li>
                     <li className="pr-2 hover:text-white"><span className="text-purple-500">#</span>Handcode Blogs</li>
                     <li className="pr-2 hover:text-white"><span className="text-purple-500">#</span>E-books</li>
                     <li className="pr-2 hover:text-white"><span className="text-purple-500">#</span>Connect Me</li>
-                    <li className="pr-2 hover:text-white"><span className="text-purple-500">#</span>Login</li>
+                    {/* <li className="pr-2 hover:text-white"><span className="text-purple-500">#</span>Login</li> */}
                 </ul>
             </nav>
         </div>

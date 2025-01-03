@@ -24,11 +24,10 @@ export default function Card(props){
 
         
        
-        <div className="p-4">
-           {props.mainHeading && <h4 className="text-2xl pb-2">{props.mainHeading}</h4>} 
-           {props.subtitle && <span className="text-l pb-2 text-slate-400">{props.subtitle}</span> } 
-           <br/>
-            <button className="mt-2 py-1 px-7 border text-l border-solid border-purple-500"  onClick={()=> redirect(props.link)} >{props.btnText}</button>
+        <div>
+           {props.mainHeading && <h4 className="text-2xl p-4 pb-2">{props.mainHeading}</h4>} 
+           {props.subtitle && <div className="text-l pl-4 pb-2 text-slate-400">{props.subtitle}</div> } 
+            { props.btnText && <button className="m-4 py-1 px-7 border text-l border-solid border-purple-500"  onClick={()=> redirect(props.link)} >{props.btnText}</button>}
         </div>
         
 
