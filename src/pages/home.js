@@ -1,4 +1,5 @@
-import Heading from "./ui-reusables/Heading"
+import Heading from "./ui-reusables/Heading";
+import Card from "./ui-reusables/Card";
 export default function Home(){
     return <div className="p-20">
       <div className="flex gap-10 justify-between">
@@ -17,6 +18,16 @@ export default function Home(){
       <div className="">
 
         <Heading icon="#" text="Portfolio" line={true} arrow="ViewAll"/>
+
+        <Heading icon="#" text="Skills" line={true}/>
+
+        <div className="flex gap-5 justify-between">
+            <Card link="https://www.yuvidev.in" btnText="Live" heading='Languages' mainHeading='Flask' subtitle="Craft me through" img='https://yuvidev.in/img/landing-page.svg' skills={['HTML','CSS', 'JAVASCRIPT']}/>
+            <Card link="https://www.yuvidev.in" btnText="Live" heading='Languages' mainHeading='Flask' subtitle="Craft me through" img='https://yuvidev.in/img/landing-page.svg' skills={['HTML','CSS', 'JAVASCRIPT']}/>
+            <Card link="https://www.yuvidev.in" btnText="Live" heading='Languages' mainHeading='Flask' subtitle="Craft me through" img='https://yuvidev.in/img/landing-page.svg' skills={['HTML','CSS', 'JAVASCRIPT']}/>
+        </div>
+
+
       </div>
     </div>
 }

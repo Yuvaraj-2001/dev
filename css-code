@@ -1,2 +1,4 @@
 background: bg-gray-800 
 white: text-slate-200 
+active: purple-500
+dark-line : slate-400
