@@ -1,5 +1,6 @@
 import Heading from "./ui-reusables/Heading";
 import Card from "./ui-reusables/Card";
+import { skills, frontendFolio } from "../commons/constants";
 export default function Home(){
     return <div className="p-20">
       <div className="flex gap-10 justify-between">
@@ -19,9 +20,9 @@ export default function Home(){
 
         <Heading icon="#" text="Portfolio" line={true} arrow="ViewAll"/>
         <div className="flex gap-5 justify-between pt-4 pb-10">
-            <Card link="https://www.yuvidev.in" btnText="Live" heading='Languages' mainHeading='Flask' subtitle="Craft me through" img='https://yuvidev.in/img/landing-page.svg' skills={['HTML','CSS', 'JAVASCRIPT']}/>
-            <Card link="https://www.yuvidev.in" btnText="Live" heading='Languages' mainHeading='Flask' subtitle="Craft me through" img='https://yuvidev.in/img/landing-page.svg' skills={['HTML','CSS', 'JAVASCRIPT']}/>
-            <Card link="https://www.yuvidev.in" btnText="Live" heading='Languages' mainHeading='Flask' subtitle="Craft me through" img='https://yuvidev.in/img/landing-page.svg' skills={['HTML','CSS', 'JAVASCRIPT']}/>
+            <Card props={frontendFolio.first}/>
+            <Card props={frontendFolio.first}/>
+            <Card props={frontendFolio.first}/>
         </div>
 
 
@@ -32,15 +33,15 @@ export default function Home(){
             </div>
             <div className="w-full flex-grow">
                 <div className="flex gap-2">
-                  <Card  heading='Languages' skills={['HTML','CSS', 'JAVASCRIPT', 'TYPESCRIPT']}/>
-                  <Card  heading='Frameworks' skills={['ANGULAR','REACT', 'VUE']}/>
+                  <Card  props={skills.language}/>
+                  <Card  props={skills.framework}/>
                 </div>
                 <div className="flex gap-2 pt-2">
-                  <Card  heading='Database Familiar' skills={['SQL','POSTGRESQL', 'MONGO']}/>
-                  <Card  heading='npm packages' skills={['lodash','chartjs', 'express', 'axios']}/>
+                  <Card props={skills.database}/>
+                  <Card props={skills.npm}/>
                 </div>
                 <div className="flex gap-2 pt-2">
-                  <Card  heading='Tools' skills={['FIGMA','VSCODE', 'GIT']}/>
+                  <Card props={skills.tools}/>
                 </div>
             </div>
         </div>
