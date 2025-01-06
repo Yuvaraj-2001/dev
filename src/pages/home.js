@@ -29,7 +29,7 @@ export default function Home(){
         <Heading  icon="#" text="Skills" line={true}/>
         <div className="flex gap-5 justify-between">
             <div className="w-full flex-grow-0">
-               <img className="pt-4 h-96" src="https://yuvidev.in/img/landing-page.svg" />
+               <img className="pt-4 h-96" src="/assets/skill.png" />
             </div>
             <div className="w-full flex-grow">
                 <div className="flex gap-2">

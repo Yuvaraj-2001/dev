@@ -74,6 +74,44 @@ export const portfolios = [
         mainHeading: 'Getnewfiber',
         subtitle: "Lead generation website for local fibernet services",
     }
+];
+
+export const projects = [
+    {
+        link: "https://debug.yuvidev.in",
+        img: '/assets/small-projects/debugger.png',
+        skills: ['HTML','CSS', 'JAVASCRIPT'],
+        mainHeading: 'Debugger',
+        subtitle: 'App that generates a debugger for javascript functions to understand application efficiency',
+    },
+    {
+        link: "https://dice.yuvidev.in",
+        img: '/assets/small-projects/dice.png',
+        skills: ['HTML','CSS', 'JAVASCRIPT'],
+        mainHeading: 'Dice',
+        subtitle: 'Mini project to generate random dice number to play',
+    },
+    {
+        link: "https://rem.yuvidev.in",
+        img: '/assets/small-projects/rem.png',
+        skills: ['HTML','CSS', 'JAVASCRIPT'],
+        mainHeading: 'Rem',
+        subtitle: 'Todo list app for grouping the list to track',
+    },
+    {
+        link: "https://snake.yuvidev.in",
+        img: '/assets/small-projects/rem.png',
+        skills: ['VUE 3.0', 'CSS'],
+        mainHeading: 'Snake and Ladders',
+        subtitle: 'Snake and ladder game to play with group',
+    },
+    {
+        link: "https://tred.yuvidev.in",
+        img: '/assets/small-projects/tred.png',
+        skills: ['HTML','CSS', 'JAVASCRIPT', 'BOOTSTRAP'],
+        mainHeading: 'Tred',
+        subtitle: 'Tred, the attrendance application built on top of javascript localstorage',
+    },
 ]
 
 
