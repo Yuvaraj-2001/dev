@@ -1,6 +1,6 @@
 import Heading from "./ui-reusables/Heading";
 import Card from "./ui-reusables/Card";
-import { skills, frontendFolio } from "../commons/constants";
+import { skills, featured } from "../commons/constants";
 export default function Home(){
     return <div className="p-20">
       <div className="flex gap-10 justify-between">
@@ -12,7 +12,7 @@ export default function Home(){
             </div>
         </div>
         <div className="profile-pic">
-            <img className="h-96" src="https://yuvidev.in/img/landing-page.svg" />
+            <img className="h-96" src="/assets/profile/yuvaraj.png" />
         </div>
       </div>
 
@@ -20,9 +20,9 @@ export default function Home(){
 
         <Heading icon="#" text="Portfolio" line={true} arrow="ViewAll"/>
         <div className="flex gap-5 justify-between pt-4 pb-10">
-            <Card props={frontendFolio.first}/>
-            <Card props={frontendFolio.first}/>
-            <Card props={frontendFolio.first}/>
+          <Card props={featured.tred}/>
+          <Card props={featured.pitchpro}/>
+          <Card props={featured.yuvidev}/>
         </div>
 
 
