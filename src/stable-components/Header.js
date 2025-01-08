@@ -3,7 +3,7 @@ export default function Header(){
     return  <div className="w-full fixed  bg-gray-800   border-b border-double  border-purple-500">
         <div className="container mx-auto">
             <div className="w-full py-5 mob:px-8 des:px-10">
-                <div className="flex justify-between text-center">
+                <div className="flex justify-between items-center">
                     <div className="text-white text-h1">YUVARAJ</div>
                     <nav className="text-white text-s1 mob:hidden">
                         <ul className="flex justify-start gap-8 text-slate-300 cursor-pointer">
