@@ -2,7 +2,8 @@ import Heading from "./ui-reusables/Heading";
 import Card from "./ui-reusables/Card";
 import { skills, featured } from "../commons/constants";
 export default function Home(){
-    return <div className="p-20">
+    return <></>;
+    <div className="p-20">
       <div className="flex gap-10 justify-between">
         <div className="flex flex-col justify-center">
             <div>   

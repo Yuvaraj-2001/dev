@@ -1,0 +1,12 @@
+background: bg-gray-800 
+white: text-slate-200 
+active: purple-500
+dark-line : slate-400
+
+
+Font Size:
+    'h1': ['2.5rem'],
+    'mh1': ['2rem'],
+    's1': ['2rem'],
+    'ms1': ['1.75rem'],
+

@@ -336,6 +336,15 @@ module.exports = {
       '7xl': ['4.5rem', { lineHeight: '1' }],
       '8xl': ['6rem', { lineHeight: '1' }],
       '9xl': ['8rem', { lineHeight: '1' }],
+
+      'h1': ['2.5rem'],
+      'mh1': ['2rem'],
+      's1': ['2rem'],
+      'ms1': ['1.75rem'],
+
+
+
+
     },
     fontWeight: {
       thin: '100',
@@ -814,11 +823,21 @@ module.exports = {
       150: '1.5',
     },
     screens: {
-      sm: '640px',
-      md: '768px',
-      lg: '1024px',
-      xl: '1280px',
-      '2xl': '1536px',
+      // sm: '640px',
+      // md: '768px',
+      // lg: '1024px',
+      // xl: '1280px',
+      // '2xl': '1536px',
+      sm: { max: '640px' }, // 0px to 320px
+      md: { min: '641px', max: '768px' }, // 321px to 425px
+      lg: { min: '769px', max: '1280px' }, // 426px to 768px
+      xl: { min: '1281px', max: '1440px' }, // 769px to 1024px
+      '2xl': { min: '1024px', max: '1440px' }, // 1025px to 1440px
+      '3xl': { min: '1441px' }, // greater than 1440px
+
+      mob: { max: '767px' },
+      des: { min: '768px'}
+    
     },
     scrollMargin: ({ theme }) => ({
       ...theme('spacing'),
