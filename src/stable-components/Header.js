@@ -18,7 +18,7 @@ export default function Header(){
                     </nav>
                 </div>
 
-                <div className="absolute left-2.5 flex flex-col items-center gap-1 ">
+                <div className="absolute left-2.5 flex flex-col items-center gap-1 mob:hidden">
                     <div className="w-1 h-60 bg-slate-400 rounded-sm"></div>
                     <div className="pt-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-github" viewBox="0 0 16 16">

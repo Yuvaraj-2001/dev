@@ -9,12 +9,14 @@ function App() {
   return (
     <div className="App bg-gray-800 text-white">
       <Header/> 
-      <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </Router>
-    {/* <Footer/> */}
+      <div className='container mx-auto mob:px-8 des:px-10 pt-7r'>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </Router>
+       {/* <Footer/> */}
+      </div>
     </div>
   );
 }

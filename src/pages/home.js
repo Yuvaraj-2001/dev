@@ -2,22 +2,21 @@ import Heading from "./ui-reusables/Heading";
 import Card from "./ui-reusables/Card";
 import { skills, featured } from "../commons/constants";
 export default function Home(){
-    return <></>;
-    <div className="p-20">
+    return <div className="pt-5r">
       <div className="flex gap-10 justify-between">
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center w-full">
             <div>   
-            <h1 className="pb-10 text-2xl">Yuvaraj, <span>Frontend Developer</span></h1>
-                <p className="pb-5 text-l font-extralight">Crafting Responsive websites, with framework or without framework<br/> from past 6.6years</p>
-                <button className="p-2 px-5 border border-solid border-purple-500">Connect me!!</button>
+            <h1 className="pb-2r text-4r mob:text-mainm1">Yuvaraj, <span>Frontend Developer</span> <br/>Over 6years experience</h1>
+                <p className="pb-3r leading-tight font-extralight text-2r">Crafting Responsive websites, with framework or without framework<br/> from past 6.6years</p>
+                <button className="p-1r px-5 border border-solid border-purple-500 text-1.5r">Connect me!!</button>
             </div>
         </div>
-        <div className="profile-pic">
+        <div className="profile-pic w-full">
             <img className="h-96" src="/assets/profile/yuvaraj.png" />
         </div>
       </div>
 
-      <div className="">
+      {/* <div className="">
 
         <Heading icon="#" text="Portfolio" line={true} arrow="ViewAll"/>
         <div className="flex gap-5 justify-between pt-4 pb-10">
@@ -53,6 +52,6 @@ export default function Home(){
         
 
 
-      </div>
+      </div> */}
     </div>
 }

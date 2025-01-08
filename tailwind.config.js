@@ -341,6 +341,23 @@ module.exports = {
       'mh1': ['2rem'],
       's1': ['2rem'],
       'ms1': ['1.75rem'],
+      'main1': ['4.5rem',  { lineHeight: '1' }],
+      'mainm1': ['2.5rem', { lineHeight: '1' }],
+      
+      '1r': ['1rem',  { lineHeight: '1' }],
+      '1.5r': ['1.25rem',  { lineHeight: '1' }],
+      '2r': ['2rem',  { lineHeight: '1' }],
+      '2.5r': ['2.5rem',  { lineHeight: '1' }],
+      '3r':[ '3rem',  { lineHeight: '1' }],
+      '3.5r': ['3.5rem', { lineHeight: '1' }],
+      '4r': ['4rem',  { lineHeight: '1' }],
+      '4.5r':['4.5rem',  { lineHeight: '1' }],
+      '5r': ['5rem',  { lineHeight: '1' }],
+      '5.5r': ['5.5rem',  { lineHeight: '1' }],
+      '6r': ['6rem',  { lineHeight: '1' }],
+      '6.5r': ['6.5rem',  { lineHeight: '1' }],
+      '7r': '7rem',
+
 
 
 
@@ -894,6 +911,22 @@ module.exports = {
       72: '18rem',
       80: '20rem',
       96: '24rem',
+
+      '1r': '1rem',
+      '1.5r': '1.25rem',
+      '2r': '2rem',
+      '2.5r': '2.5rem',
+      '3r': '3rem',
+      '3.5r': '3.5rem',
+      '4r': '4rem',
+      '4.5r':'4.5rem',
+      '5r': '5rem',
+      '5.5r': '5.5rem',
+      '6r': '6rem',
+      '6.5r': '6.5rem',
+      '7r': '7rem',
+
+
     },
     stroke: ({ theme }) => ({
       none: 'none',
