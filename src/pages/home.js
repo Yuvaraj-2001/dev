@@ -2,8 +2,8 @@ import Heading from "./ui-reusables/Heading";
 import Card from "./ui-reusables/Card";
 import { skills, featured } from "../commons/constants";
 export default function Home(){
-    return <div className="pt-5r">
-      <div className="flex gap-10 justify-between">
+    return <div className="py-5r">
+      <div className="py-3r flex gap-10 justify-between">
         <div className="flex flex-col justify-center w-full">
             <div>   
             <h1 className="pb-2r text-4r mob:text-mainm1">Yuvaraj, <span>Frontend Developer</span> <br/>Over 6years experience</h1>
@@ -12,14 +12,14 @@ export default function Home(){
             </div>
         </div>
         <div className="profile-pic w-full">
-            <img className="h-96" src="/assets/profile/yuvaraj.png" />
+            <img className="h-full w-full" src="/assets/profile/yuvaraj.png"/>
         </div>
       </div>
 
-      {/* <div className="">
+      <div className="pt-2r">
 
-        <Heading icon="#" text="Portfolio" line={true} arrow="ViewAll"/>
-        <div className="flex gap-5 justify-between pt-4 pb-10">
+        <Heading icon="#" text="Portfolio" line={true} arrow="View all"/>
+        <div className="flex gap-5 justify-between py-2r">
           <Card props={featured.tred}/>
           <Card props={featured.pitchpro}/>
           <Card props={featured.yuvidev}/>
@@ -52,6 +52,6 @@ export default function Home(){
         
 
 
-      </div> */}
+      </div>
     </div>
 }
