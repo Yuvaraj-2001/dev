@@ -26,32 +26,42 @@ export default function Home(){
         </div>
 
 
-        <Heading  icon="#" text="Skills" line={true}/>
-        <div className="flex gap-5 justify-between">
-            <div className="w-full flex-grow-0">
-               <img className="pt-4 h-96" src="/assets/skill.png" />
-            </div>
-            <div className="w-full flex-grow">
-                <div className="flex gap-2">
-                  <Card  props={skills.language}/>
-                  <Card  props={skills.framework}/>
-                </div>
-                <div className="flex gap-2 pt-2">
-                  <Card props={skills.database}/>
-                  <Card props={skills.npm}/>
-                </div>
-                <div className="flex gap-2 pt-2">
-                  <Card props={skills.tools}/>
-                </div>
-            </div>
+      <div className="pt-2r">
+       <Heading  icon="#" text="Skills" line={true}/>
+          <div className="pt-2r flex gap-5 justify-between">
+              <div className="w-full flex-grow-0">
+                <img className="pt-4 h-96" src="/assets/skill.png" />
+              </div>
+              <div className="w-full flex-grow">
+                  <div className="flex gap-2">
+                    <Card  props={skills.language}/>
+                    <Card  props={skills.framework}/>
+                  </div>
+                  <div className="flex gap-2 pt-2">
+                    <Card props={skills.database}/>
+                    <Card props={skills.npm}/>
+                  </div>
+                  <div className="flex gap-2 pt-2">
+                    <Card props={skills.tools}/>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div className="py-3r">
+        <Heading icon="#" text="about-me" line={true}/>  
+        <div className="flex pt-2r"> 
+          <div className="w-full">
+              <p className="pt-4r text-1.5r">Hey, i'm Yuvaraj, Frontend developer. If you are looking forward to develop, migrate business application then you are here in right spot.</p>
+              <p className="pt-4r text-1.5r">Firstly I have specifically experienced 6.5 Years now. Mainly my specialization is in 3 Frameworks, Angular, Vue and React. Also I have mastered state management as well, ie, NGRX, REDUX, PINIA</p>
+              <p className="pt-4r text-1.5r">Let's see mey Workflow</p>
+              <p className="pt-4r text-1.5r">Design, Functionalities, Development, Code Refactoring Testing and Deployment Verification.</p>
+          </div>
+          <div className="w-full">
+            <img className="h-full w-full" src="/assets/profile/yuvaraj.png"/>
+          </div>
         </div>
-
-        <Heading  icon="#" text="about-me" line={true}/>
-        
-
-        
-
-
+      </div>
       </div>
     </div>
 }

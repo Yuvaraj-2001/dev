@@ -345,7 +345,7 @@ module.exports = {
       'mainm1': ['2.5rem', { lineHeight: '1' }],
       
       '1r': ['1rem',  { lineHeight: '1' }],
-      '1.5r': ['1.25rem',  { lineHeight: '1' }],
+      '1.5r': ['1.5rem',  { lineHeight: '1' }],
       '2r': ['2rem',  { lineHeight: '1' }],
       '2.5r': ['2.5rem',  { lineHeight: '1' }],
       '3r':[ '3rem',  { lineHeight: '1' }],
