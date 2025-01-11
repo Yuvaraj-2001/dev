@@ -2,7 +2,7 @@ import Heading from "./ui-reusables/Heading";
 import Card from "./ui-reusables/Card";
 import { skills, featured } from "../commons/constants";
 export default function Home(){
-    return <div className="py-5r">
+    return <div className="">
       <div className="py-3r flex gap-10 justify-between">
         <div className="flex flex-col justify-center w-full">
             <div>   
