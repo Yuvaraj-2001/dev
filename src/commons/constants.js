@@ -1,5 +1,5 @@
 
-const socials = {
+export const socials = {
     github: 'https://github.com/Yuvaraj-2001',
     linkedin: 'https://www.linkedin.com/in/yuvaraj-s-32326b176/',
     instagram: 'https://www.instagram.com/code.yuvaraj/',
