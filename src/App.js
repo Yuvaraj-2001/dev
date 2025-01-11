@@ -4,6 +4,8 @@ import { Routes, Route } from 'react-router-dom';
 
 import Home from './pages/home';
 import Portfolio from './pages/portfolio';
+import Contact from './pages/connect-me';
+
 import Footer from './stable-components/Footer';
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/connect" element={<Contact />} />
           </Routes>
         
      

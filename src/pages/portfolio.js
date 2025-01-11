@@ -5,7 +5,7 @@ import { portfolios, projects } from "../commons/constants";
 export default function Portfolio() {
     return (
         <div className="py-6">
-            <Heading icon="#" text="Portfolio" line={true} />
+            <Heading icon="/" text="Portfolio" line={true} />
             <div className="grid grid-cols-3  mob:grid-cols-2 gap-6 py-2r">
                 {portfolios.map((item, index) => (
                     <Card key={index} props={item} />
