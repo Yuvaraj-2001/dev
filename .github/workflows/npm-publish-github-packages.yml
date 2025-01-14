@@ -46,4 +46,4 @@ jobs:
       - name: access remote repo
         run: git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/Yuvaraj-2001/dev.git
       - name: push changes
-        run: git push origin dist
+        run: git push origin dist --force
