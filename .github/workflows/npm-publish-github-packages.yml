@@ -27,6 +27,9 @@ jobs:
       # Step 4: Build the React app
       - name: Build the app
         run: npm run build
+      
+      - name: copy htaccess file
+        run: npm run copy-htaccess
 
       # Step 5: Deploy to the `dist` branch
       - name: check the folders
