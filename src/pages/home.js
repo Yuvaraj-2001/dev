@@ -12,7 +12,7 @@ export default function Home(){
             </div>
         </div>
         <div className="profile-pic w-full">
-            <img className="h-full w-full" src="/assets/profile/yuvaraj.png"/>
+            <img className="h-full w-full" alt="yuvaraj" src="/assets/profile/yuvaraj.png"/>
         </div>
       </div>
 
@@ -30,7 +30,7 @@ export default function Home(){
        <Heading  icon="#" text="Skills" line={true}/>
           <div className="pt-2r flex gap-5 justify-between">
               <div className="w-full flex-grow-0">
-                <img className="pt-4 h-96" src="/assets/skill.png" />
+                <img className="pt-4 h-96" alt="skill" src="/assets/skill.png" />
               </div>
               <div className="w-full flex-grow">
                   <div className="flex gap-2">
@@ -58,7 +58,7 @@ export default function Home(){
               <p className="pt-4r text-1.5r">Design, Functionalities, Development, Code Refactoring Testing and Deployment Verification.</p>
           </div>
           <div className="w-full">
-            <img className="h-full w-full" src="/assets/profile/yuvaraj.png"/>
+            <img className="h-full w-full" alt="yuvaraj" src="/assets/profile/yuvaraj.png"/>
           </div>
         </div>
       </div>

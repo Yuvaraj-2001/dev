@@ -2,7 +2,7 @@ import Heading from "./ui-reusables/Heading";
 import { FaWhatsapp } from 'react-icons/fa';
 import { MdEmail } from "react-icons/md";
 
-export default function() {
+export default function Connect() {
     return (
         <div className="py-6">
         <Heading icon="/" text="Contact " line={true} />
