@@ -31,3 +31,7 @@ jobs:
       # Step 5: Deploy to the `dist` branch
       - name: check the folders
         run: ls
+      - name: checkout to dist
+        run: git checkout dist || git checkout --orphan dist
+      - name: check the folders
+        run: ls
