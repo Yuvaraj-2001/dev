@@ -29,35 +29,5 @@ jobs:
         run: npm run build
 
       # Step 5: Deploy to the `dist` branch
-      - name: Deploy to dist branch
-        run: |
-          # Configure Git
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-
-          # Fetch the latest changes from the origin
-          git fetch origin
-
-          # Checkout the dist branch, if it doesn't exist, create it from master
-          git checkout dist || git checkout --orphan dist
-
-          # Clean the dist branch (remove all existing files)
-          git rm -rf .
-
-          # Copy the contents of the build folder into the dist branch (skip hidden files)
-          cp -r build/* ./  # Copy regular files from the build folder
-
-          # Add all changes to Git
-          git add --all
-          git status  # Print what files are being added
-
-          # Check if any files were added before committing
-          if [[ $(git diff --cached --name-only) ]]; then
-            git commit -m "Deploy build to dist branch"
-          else
-            echo "No changes to commit"
-            exit 0
-          fi
-
-          # Push the changes to the dist branch (force push to overwrite)
-          git push origin dist --force
+      - name: check the folders
+        run: ls
