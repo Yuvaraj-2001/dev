@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - master  # Trigger the workflow when changes are pushed to the main branch
+      - master  # Trigger the workflow when changes are pushed to the master branch
 
 jobs:
   build-and-deploy:
@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20 # Use the Node.js version your project requires
+          node-version: 20  # Use the Node.js version your project requires
 
       # Step 3: Install dependencies
       - name: Install dependencies
@@ -31,9 +31,24 @@ jobs:
       # Step 5: Deploy to the `dist` branch
       - name: Deploy to dist branch
         run: |
+          # Configure Git
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git checkout --orphan dist
-          git --work-tree=build add --all
-          git --work-tree=build commit -m "Deploy build"
-          git push origin HEAD:dist --force
+          
+          # Check if dist branch exists, if not, create it from master
+          git fetch origin
+          git checkout master
+          git checkout -b dist origin/master || git checkout --orphan dist
+
+          # Clean up the dist branch (if it's an orphan branch, it may have untracked files)
+          git rm -rf .
+
+          # Copy the build folder into the root
+          cp -r build/* ./
+
+          # Add changes to Git
+          git add --all
+          git commit -m "Deploy build to dist branch"
+          
+          # Push to the dist branch
+          git push origin dist --force
