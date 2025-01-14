@@ -12,7 +12,7 @@ export default function Card({props}){
         }
 
        {props.img &&  <div className="border-b border-slate-400 p-2">
-            <img src={props.img}  />
+            <img src={props.img}   alt="card"/>
         </div>}
 
         {
