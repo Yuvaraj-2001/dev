@@ -15,7 +15,6 @@ jobs:
         uses: actions/checkout@v3
 
       # Step 2: Set up Node.js
-      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20  # Use the Node.js version your project requires
@@ -34,21 +33,31 @@ jobs:
           # Configure Git
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          
-          # Check if dist branch exists, if not, create it from master
-          git fetch origin
-          git checkout master
-          git checkout -b dist origin/master || git checkout --orphan dist
 
-          # Clean up the dist branch (if it's an orphan branch, it may have untracked files)
+          # Fetch the latest changes from the origin
+          git fetch origin
+
+          # Checkout the dist branch, if it doesn't exist, create it from master
+          git checkout dist || git checkout --orphan dist
+
+          # Clean the dist branch (remove all existing files)
           git rm -rf .
 
-          # Copy the build folder into the root
-          cp -r build/* ./
+          # Copy all files, including hidden ones, from build/ to the dist branch
+          cp -r build/* ./  # Copy the regular files
+          cp -r build/.* ./  # Copy hidden files (e.g., .well-known)
 
-          # Add changes to Git
+          # Add all changes to Git
           git add --all
-          git commit -m "Deploy build to dist branch"
-          
-          # Push to the dist branch
+          git status  # This will show what files are being added
+
+          # Check if any files were added before committing
+          if [[ $(git diff --cached --name-only) ]]; then
+            git commit -m "Deploy build to dist branch"
+          else
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          # Push the changes to the dist branch (force push to overwrite)
           git push origin dist --force
