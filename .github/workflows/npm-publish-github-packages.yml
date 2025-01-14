@@ -35,7 +35,9 @@ jobs:
         run: git checkout dist || git checkout --orphan dist
       - name: check the folders
         run: ls
-      - name: Remove all files except the `build` folder
-        run: find . -mindepth 1 -not -path "./build*" -exec git rm -rf {} +
-      - name: check again 
-        run: ls
+      - name: adding certain folder
+        run: git add build/
+      - name: commit changes
+        run: git commit -m "push changes"
+      - name: push changes
+        run: git push origin dist --force
