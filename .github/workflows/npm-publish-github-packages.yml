@@ -44,4 +44,4 @@ jobs:
       - name: commit changes
         run: git commit -m "push changes"
       - name: push changes
-        run: git push origin dist --force
+        run: git push origin dist
