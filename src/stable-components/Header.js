@@ -13,7 +13,7 @@ export default function Header() {
                     <div className="flex justify-between items-center">
                         <div className="text-white text-h1">
                             <NavLink to="/" className="hover:text-white">
-                                YUVARAJ S
+                                YUVARAJ
                             </NavLink>
                         </div>
                         <nav className="text-white text-s1 mob:hidden">
