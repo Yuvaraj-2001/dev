@@ -7,7 +7,7 @@ export const getMediumBlogs = async () => {
 
   try {
    
-    const articles = await medium.getLatestArticlesTitle(username);
+    const articles = await medium.getData(username);
 
     // Map through articles to display desired details
     const blogs = articles.items.map((article) => ({
