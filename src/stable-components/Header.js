@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 // Function to determine the active class for NavLink
 const getActiveClass = ({ isActive }) => {
-    return isActive ? "text-purple-500" : "hover:text-white";
+    return isActive ? "text-purple-500" : "hover:text-white hover:underline";
 };
 
 export default function Header() {
@@ -33,6 +33,11 @@ export default function Header() {
                                         <span className="text-purple-500">#</span> About Me
                                     </NavLink>
                                 </li>
+                                <li className="border-2 border-slate-200 px-4 border-1px rounded-lg">
+                                    <NavLink to="/learn" className={getActiveClass}>
+                                        <span className="text-purple-500">#</span> Learn
+                                    </NavLink>
+                                </li>
                                 <li>
                                     <NavLink to="/medium" className={getActiveClass}>
                                         <span className="text-purple-500">#</span> Medium Blogs
@@ -46,6 +51,11 @@ export default function Header() {
                                 <li>
                                     <NavLink to="/connect" className={getActiveClass}>
                                         <span className="text-purple-500">#</span> Connect Me
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/login" className={getActiveClass}>
+                                        <span className="text-purple-500">#</span> Login
                                     </NavLink>
                                 </li>
                             </ul>
