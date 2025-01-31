@@ -222,3 +222,136 @@ export const medium = {
 
 }
 
+
+export const stackblitz = {
+    "angular": [
+        {
+            title: "Angular v17 - features",
+            description: 'Learn about the latest features of Angular, including the introduction of Angular Material, Angular Flex-Layout, and Angular CDK.',
+            url: 'https://stackblitz.com/@Yuvaraj-2001/collections/angular-v17-features'
+        },
+        {
+            title: 'Angular 01: Component',
+            description: 'Explore reusable, modular components that form the building blocks of Angular applications, enhancing code maintainability and scalability.',
+            url: 'https://stackblitz.com/@Yuvaraj-2001/collections/angular-component'
+        },
+        {
+            title: 'Angular 02: Directives',
+            description: "Dive into Angular's powerful directives, which allow you to manipulate the DOM and extend HTML functionality, enabling dynamic and reusable templates.",
+            url:'https://stackblitz.com/@Yuvaraj-2001/collections/angular-02-directives'
+        },
+        {
+            title: 'Angular 03: Services',
+            description: 'Learn how to create services to manage shared data, logic, and functionality across multiple components in an Angular application.',
+            url:'https://stackblitz.com/@Yuvaraj-2001/collections/angular-03-services'
+        },
+        {
+            title: 'Angular 04: Routing',
+            description: 'Implement routing in your Angular application to navigate between different views and components.',
+            url:'https://stackblitz.com/@Yuvaraj-2001/collections/angular-routing'
+        },
+        {
+            title: 'Angular 05 : Template Driven Forms',
+            description: 'Learn how to create forms using Angular\'s template-driven approach, enabling user input validation and error handling.',
+            url:'https://stackblitz.com/@Yuvaraj-2001/collections/angular-05-template-driven-forms'
+        },
+        {
+            title: 'Angular 06 : Reactive Form',
+            description: 'Learn how to create forms using Angular\'s reactive approach, enabling user input validation and error handling.',
+            url:'https://stackblitz.com/@Yuvaraj-2001/collections/angular-reactive-form'
+        },
+        {
+            title: 'Angular 07 : Pipes',
+            description: 'Dive into Angular\'s powerful pipes, which transform and format data in your templates.',
+            url:'https://stackblitz.com/@Yuvaraj-2001/collections/angular-pipes'
+        },
+        {
+            title: 'Angular 08: Http',
+            description: 'Learn how to make HTTP requests in your Angular application using HttpClient, handling errors, and optimizing performance.',
+            url:'https://stackblitz.com/@Yuvaraj-2001/collections/angular-http'
+        },
+        {
+            title: 'Angular 09: Signals',
+            description: 'Learn how to create and manage signals in Angular, enabling communication between components and services.',
+            url:'https://stackblitz.com/@Yuvaraj-2001/collections/angular-09-signals'
+        },
+        {
+            title: 'Angular NGRX',
+            description: 'State management library NGRX, enabling efficient and scalable state management in your Angular applications.',
+            url:'https://stackblitz.com/@Yuvaraj-2001/collections/angular-ngrx'
+        }
+    ],
+    "react": [
+        {
+            title: 'React',
+            description: 'React core concepts and hooks',
+            url: 'https://stackblitz.com/@Yuvaraj-2001/collections/react'
+        },
+        {
+            title: 'React Router',
+            description: 'React Router Dom, npm package to change and manage route navigations',
+            url: 'https://stackblitz.com/@Yuvaraj-2001/collections/react-01-components'
+        },
+        {
+            title: 'React Axios',
+            description: 'Manage interceptors, http requests, implement configuration with axios',
+            url: 'https://stackblitz.com/@Yuvaraj-2001/collections/react-axios'
+        },
+        {
+            title: 'React Redux',
+            description: 'Redux and React-Redux, state management library',
+            url: 'https://stackblitz.com/@Yuvaraj-2001/collections/react-redux'
+        },
+        {
+            title: 'Redux Toolkit',
+            description: 'Redux Toolkit, official Redux utilities for Redux',
+            url: 'https://stackblitz.com/@Yuvaraj-2001/collections/redux-toolkit'
+        }
+    ],
+    "vue": [
+        {
+           title: 'Vue Js',
+           description: 'Learn Vue.js core concepts with plain html, css, and javascript',
+           url: 'https://stackblitz.com/@Yuvaraj-2001/collections/vue-js'
+        },
+        {
+            title: 'Vue 3.0',
+            description: 'Checkot latest Vue 3.0 concepts and features',
+            url: 'https://stackblitz.com/@Yuvaraj-2001/collections/vue-3-0'
+        },
+        {
+            title: 'Vuetify',
+            description: 'Vuetify, a Vue.js Material Design component framework',
+            url: 'https://stackblitz.com/@Yuvaraj-2001/collections/vuetify'
+        }
+    ],
+    "rxjs": [
+        {
+            title: 'RXJS Fundamentals',
+            description: 'Rxjs core fundamentals to get started',
+            url: 'https://stackblitz.com/@Yuvaraj-2001/collections/rxjs-fundamentals'
+        },
+        {
+           title: 'RXJS 01: Creation Operator',
+           description: 'Learn about creation operators like of, from, fromEvent etc.',
+           url: 'https://stackblitz.com/@Yuvaraj-2001/collections/rxjs-series'
+        },
+        {
+            title: 'RXJS 02: Pipable Operators',
+            description: 'Rxjs pipable operators like combineLatest, take, takeLast etc',
+            url: 'https://stackblitz.com/@Yuvaraj-2001/collections/rxjs-02-pipable-operators'
+         }
+    ],
+    "js":[
+        {
+            title: 'Javascript Concepts',
+            description: 'To refresh your javascript core concepts. Yayy!',
+            url: 'https://stackblitz.com/@Yuvaraj-2001/collections/rxjs-02-pipable-operators'
+        },
+        {
+            title: 'Javascript Common Methods',
+            description: 'Some of the common methods to help you while coding',
+            url: 'https://stackblitz.com/@Yuvaraj-2001/collections/rxjs-02-pipable-operators'
+        }
+    ]
+};
