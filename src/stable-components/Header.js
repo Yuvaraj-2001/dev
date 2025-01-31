@@ -7,7 +7,7 @@ const getActiveClass = ({ isActive }) => {
 
 export default function Header() {
     return (
-        <div className="w-full fixed bg-gray-800 border-b border-double border-purple-500">
+        <div className="w-full fixed bg-gray-800 border-b border-double border-purple-500" style={{zIndex: 2}}>
             <div className="container mx-auto">
                 <div className="w-full py-5 mob:px-8 des:px-10">
                     <div className="flex justify-between items-center">
