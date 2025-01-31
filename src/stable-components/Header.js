@@ -34,13 +34,13 @@ export default function Header() {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/blogs" className={getActiveClass}>
-                                        <span className="text-purple-500">#</span> Handcode Blogs
+                                    <NavLink to="/medium" className={getActiveClass}>
+                                        <span className="text-purple-500">#</span> Medium Blogs
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/ebooks" className={getActiveClass}>
-                                        <span className="text-purple-500">#</span> E-books
+                                    <NavLink to="/stackblitz" className={getActiveClass}>
+                                        <span className="text-purple-500">#</span> Stackblitz Code
                                     </NavLink>
                                 </li>
                                 <li>

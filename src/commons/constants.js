@@ -138,3 +138,33 @@ export const skills = {
     },
 
 }
+
+
+export const medium = {
+    angular: [
+        {
+            "title": "Angular Component 01: Creating Components",
+            "medium": "https://medium.com/@yuvidev/lesson-1-basics-of-components-131dee1dae44",
+            "content": "🔹 What’s a Component? Think of a component as a self-contained module that defines a certain part of your webpage. It’s like a Lego brick — you put them together to create something bigger and functional.",
+            "stackblitz": "https://stackblitz.com/edit/angular-ivy-component1"
+        },
+        {
+            "title": "Angular Components 02: Input decorator databinding",
+            "medium":"https://medium.com/@yuvidev/i-have-created-component-server-display-6e7021746f85",
+            "content": "In Angular🚀, components often need to communicate with each other, and one powerful way to achieve this is through the @Input decorator. 📨📦 This decorator allows you to pass data from a parent component to a child component, enabling seamless interaction and dynamic content updates.",
+            "stackblitz": "https://stackblitz.com/edit/angular-ivy-component2-inputdecorator"
+        },
+        {
+            "title": "Angular Components 03 : Components Output decorator",
+            "medium":"https://medium.com/@yuvidev/lesson-3-components-output-decorator-590750d5b6",
+            "content": "Notice inside EventEmitter the type should be in string not String. So we are emiting this value using event emitter. Taking value from html file.",
+            "stackblitz": "https://stackblitz.com/edit/angular-ivy-component3-outputdecorator"
+        },
+        {
+            "title": "Angular Components 04: components @viewchild reference",
+            "medium":"https://medium.com/@yuvidev/lesson-3-components-output-decorator-590750d5b6",
+            "content": "Notice inside EventEmitter the type should be in string not String. So we are emiting this value using event emitter. Taking value from html file.",
+            "stackblitz": "https://stackblitz.com/edit/angular-ivy-component3-outputdecorator"
+        },
+    ]
+}

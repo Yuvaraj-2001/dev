@@ -28,3 +28,9 @@ Spacing:
     '6r': '6rem',
     '6.5r': '6.5rem',
     '7r': '7rem',
+
+line height, lineheight;
+leading-tight
+leading-none
+leading-snug
+leading-relaxed
