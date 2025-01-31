@@ -15,26 +15,26 @@ function Medium(){
 
         <div>
             <Heading icon={<FaAngular color='#DD0031'/>} text="Angular" line={true} arrow="View all"/>
-            <div className='flex gap-3'>
+            <div className='flex gap-3 pt-1r'>
                 {medium.angular.map((m, i) =>  <MediumCard props={m} border="red-400" key={i} /> )}
             </div>
         </div>
 
         <div className="pt-2r">
             <Heading icon={<RxJSIcon color='#F7DF1E'/>} text="Rxjs Operators" line={true} arrow="View all"/>
-            <div className='flex gap-3 pt-2r'>
-            {medium.angular.map((m, i) =>  <MediumCard props={m} border="pink-400"  key={i} /> )}
+            <div className='flex gap-3 pt-1r'>
+            {medium.rxjs.map((m, i) =>  <MediumCard props={m} border="pink-400"  key={i} /> )}
             </div>
         </div>
        
         <div className="pt-2r">
             <Heading icon={<FaReact color='#61DAFB'/>}  text="React" line={true} arrow="View all"/>
-            <div className='flex gap-3 pt-2r'>
-            {medium.angular.map((m, i) =>  <MediumCard props={m} border="blue-400" key={i} /> )}
+            <div className='flex gap-3 pt-1r'>
+            {medium.react.map((m, i) =>  <MediumCard props={m} border="blue-400" key={i} /> )}
             </div>
         </div>
 
-        
+        <div className='pt-5r'></div>
 
 
 

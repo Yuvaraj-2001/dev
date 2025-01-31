@@ -166,5 +166,59 @@ export const medium = {
             "content": "Notice inside EventEmitter the type should be in string not String. So we are emiting this value using event emitter. Taking value from html file.",
             "stackblitz": "https://stackblitz.com/edit/angular-ivy-component3-outputdecorator"
         },
+    ],
+    react: [
+        {
+            "title": "React 01: JSX and Printing Value in JSX",
+            "medium": "https://medium.com/@yuvidev/react-01-jsx-and-printing-value-in-jsx-99c8a4be51f1",
+            "content": "JSX, or JavaScript XML, is a syntax extension for JavaScript. It allows you to write HTML directly within JavaScript, which makes it easier to create and render React components. With JSX, you can structure component render outputs using syntax that looks similar to HTML, making the code more readable and expressive. Under the hood, JSX gets compiled to React.createElement() calls, which produce React “elements” — JavaScript objects that describe a component’s structure.",
+            "stackblitz": "https://stackblitz.com/edit/react-ne3gqu"
+        },
+        {
+            "title": "React 02: React Components and Props 🚀",
+            "medium": "https://medium.com/@yuvidev/react-02-react-components-and-props-d2d74214052f",
+            "content": "A React component is a reusable piece of UI that can be composed to build more complex interfaces. There are two types of components in React: functional components and class components. In this blog, we’ll focus on functional components, which are simpler and more commonly used in modern React development. 💻",
+            "stackblitz": "https://stackblitz.com/edit/react-components-prop"
+        },
+        {
+            "title": "React 03: Passing Data from Child to Parent Component in React 🚀",
+            "medium": "https://medium.com/@yuvidev/react-03-passing-data-from-child-to-parent-component-in-react-9ef5c5c2e7a2",
+            "content": "Props in React are typically used to pass data from parent components to child components. However, there are scenarios where you need to pass data from a child component back to its parent. This is achieved through callback functions passed as props. Let’s break down how this works with an example! 📚",
+            "stackblitz": "https://stackblitz.com/edit/react-child-to-parent-component"
+        },
+        {
+            "title": "React 04: Understanding the children Prop in React 🌟",
+            "medium": "https://medium.com/@yuvidev/react-04-understanding-the-children-prop-in-react-928967f53901",
+            "content": "In React, the children prop is a special prop that allows you to pass components or elements as children to other components. This feature is particularly useful for creating reusable and flexible UI components. In this blog, we'll explore how the children prop works and provide a practical example to illustrate its use. Let's dive in! 🚀",
+            "stackblitz": "https://stackblitz.com/edit/react-children-prop"
+        }
+    ],
+    rxjs:[
+        {
+            "title": "RXJS Operator 01: Of Operator",
+            "medium": "https://medium.com/@yuvidev/rxjs-operator-01-of-operator-dcdf7690e9f8",
+            "content": "As our definition says, “Of” operator takes the argument as it can take string, number, array, HTML document, Object as an argument. And then it converts into a stream of data.",
+            "stackblitz": "https://stackblitz.com/edit/rxjs-operator-of"
+        },
+        {
+            "title": "RXJS Operator 02: Ajax Operator",
+            "medium": "https://medium.com/@yuvidev/rxjs-operator-02-ajax-operator-f10ef683319f",
+            "content": "The ajax operator, available in the RxJS library, makes it easy to create an observable for an Ajax request by taking in a request object with the necessary URL, headers, and other options. This makes it simple to manage asynchronous data streams and handle responses from the server in a clean and organized way.",
+            "stackblitz": "https://stackblitz.com/edit/rxjs-operator-ajax"
+        },
+        {
+            "title": "RXJS Operator 03: From Operator",
+            "medium": "https://medium.com/@yuvidev/rxjs-operator-03-from-operator-85b625303632",
+            "content": "The from operator is a way to create an observable sequence from an array, an iterable, a promise, an array-like object, or an event. It can be used to convert various types of data into an observable stream that can be subscribed to and processed using RxJS operators. Basically, we give a input in an array format.",
+            "stackblitz": "https://stackblitz.com/edit/rxjs-operator-from"
+        },
+        {
+            "title": "RXJS Operator 04: fromEvent Operator",
+            "medium": "https://medium.com/@yuvidev/rxjs-operator-03-fromevent-operator-8c0e06cf1958",
+            "content": "fromEvent is one of the creation operators. fromEvent operator is used to creating an observable from an event-emitting DOM element, an event type, and a selector function to extract the arguments from the event object that the observable will emit.",
+            "stackblitz": "https://stackblitz.com/edit/rxjs-operator-fromevent"
+        }
     ]
+
 }
+
