@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import Home from './pages/home';
 import Portfolio from './pages/portfolio';
-import Blogs from './pages/blogs';
+// import Blogs from './pages/blogs';
 import Medium from './pages/medium';
 import Stackblitz from './pages/stackblitz';
 import Contact from './pages/connect-me';

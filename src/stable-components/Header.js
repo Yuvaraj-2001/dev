@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { FaChevronDown } from "react-icons/fa";
+// import { FaChevronDown } from "react-icons/fa";
 // Function to determine the active class for NavLink
 const getActiveClass = ({ isActive }) => {
     return isActive ? "text-purple-500" : "hover:text-white hover:underline";
@@ -35,7 +35,7 @@ export default function Header() {
                                 </li>
                                 <li className="border-2 border-slate-200 px-4 border-1px rounded-lg">
                                     <NavLink to="/learn" className={getActiveClass}>
-                                        <span className="text-purple-500">#</span> Learn
+                                        <span className="text-purple-500"></span> Learn
                                     </NavLink>
                                 </li>
                                 <li>

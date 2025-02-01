@@ -9,7 +9,7 @@ const RxJSIcon = () => {
         className="w-full h-full object-contain"
       />
       {/* Color Overlay */}
-      <div className="absolute inset-0 bg-[#F7DF1E] mix-blend-multiply opacity-50" />
+      <div className="absolute inset-0 mix-blend-multiply opacity-50" />
     </div>
   );
 };
