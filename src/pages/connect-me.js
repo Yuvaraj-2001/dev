@@ -8,7 +8,7 @@ export default function Connect() {
         <Heading icon="/" text="Contact " line={true} />
         <div className="flex justify-between">
                <div className="w-full">
-                    <p className="text-slate-400 text-1.5r">I’m interested in freelance opportunities. However, if you have other request or question, don’t hesitate to contact me</p>
+                    <p className="text-slate-400 text-1.5r">I’m interested in developing ideas that bring life to application, if you have a opportunity that aligns with our goals let's connect!</p>
                 </div> 
                <div className="w-full flex gap-6">
                     <div className="border border-slate-400 p-1.5r w-96">
@@ -37,6 +37,15 @@ export default function Connect() {
                              >
                                 <MdEmail className="text-blue-500 text-3xl" />
                                 Email: developer@yuvidev.in
+                            </a>
+                            <a
+                                href="mailto:yuvarajthecoder@gmail.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-lg text-slate-400 hover:text-blue-500 flex items-center gap-2"
+                             >
+                                <MdEmail className="text-red-500 text-3xl" />
+                                Gmail: yuvarajthecoder@gmail.com
                             </a>
                             
                     </div>

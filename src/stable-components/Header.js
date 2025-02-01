@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-
+import { FaChevronDown } from "react-icons/fa";
 // Function to determine the active class for NavLink
 const getActiveClass = ({ isActive }) => {
     return isActive ? "text-purple-500" : "hover:text-white hover:underline";
