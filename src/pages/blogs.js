@@ -1,47 +1,34 @@
-import React, { useEffect, useState } from "react";
-import { getMediumBlogs } from "../services/medium";
+import { useEffect } from "react";
+// import { getMediumBlogs } from "../services/medium";
+import { useFetchCollectionsQuery } from "../store/apis/blog";
+import { useSearchParams } from "react-router-dom";
 
 export default function Blogs() {
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [searchParams] = useSearchParams();
+  const ID = searchParams.get("id")
+  // if(!ID){
+  //   return <h1>No Blog ID provided</h1>
+  // }
+  const {data, error, isLoading, refetch} =  useFetchCollectionsQuery(ID);
+
 
   useEffect(() => {
-    async function fetchBlogs() {
-      try {
-        setLoading(true);
-        
-        const fetchedBlogs = await getMediumBlogs();
-        setBlogs(fetchedBlogs);
-      } catch (error) {
-        console.error("Error fetching blogs:", error.message);
-      } finally {
-        setLoading(false);
-      }
+    refetch(ID);
+    console.log("Route changed:", ID);
+  }, [ID]); 
+
+  let content;
+    if(isLoading){
+        content = <div className="flex justify-center items-center h-full">
+            <div className="w-12 h-12 rounded-full bg-slate-300 animate-spin" /> loading...
+        </div>
+    }else if(data){
+      content = data?.map((n)=> <li><span className="hover:text-gray-300">{n.title}</span></li>)  
+    }else if(error){
+      return <div>Something Went Wrong</div>
     }
 
-    fetchBlogs();
-  }, []);
-
-  return (
-    <div>
-      <h1>Medium Blogs</h1>
-      {loading ? (
-        <p>Loading...</p>
-      ) : blogs.length > 0 ? (
-        <ul>
-          {blogs.map((blog, index) => (
-            <li key={index}>
-              <a href={blog.link} target="_blank" rel="noopener noreferrer">
-                <h2>{blog.title}</h2>
-              </a>
-              <p>{blog.pubDate}</p>
-              <p dangerouslySetInnerHTML={{ __html: blog.description }}></p>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No blogs found.</p>
-      )}
-    </div>
-  );
+  return <div>
+      {content}
+  </div>;
 }

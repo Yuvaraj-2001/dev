@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import { useFetchTopicsQuery } from "../store/apis/blog";
+import { useFetchTopicsQuery, useFetchCollectionsQuery } from "../store/apis/blog";
 import { useState } from "react";
-
+import {useNavigate} from 'react-router-dom';
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 // Function to determine the active class for NavLink
 const getActiveClass = ({ isActive }) => {
@@ -12,12 +12,14 @@ export default function Header() {
 
   const {data, error, isLoading} =  useFetchTopicsQuery();
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
   const redirect = (p) => {
     console.log(p);
+    navigate('/blogs' + '?id=' + btoa(p.id))
   }
 
   console.log(data, error, isLoading);

@@ -11,12 +11,27 @@ const blogsApi = createApi({
     }),
     endpoints(builder){
         return {
+          // invalidatesTags: (result, error, data)=>{
+          //   console.log(result, error, data);
+          //   // return [{type: 'Album', id: data.id}];
+          // },
+            fetchCollections: builder.query({
+              query: (data) =>{
+                if (!data) {
+                  throw new Error("Invalid request: Data is required"); // Throws error
+                }
+                return {
+                  url: '/collectionsById/'+ atob(data),
+                  method: 'GET',
+                }
+              },
+            }),
             fetchTopics: builder.query({
-                // providesTags: (result, error, user) => {
-                //   console.log('onFly', user);
-                //   return [{type: 'Album', id: user.id}];
+                // providesTags: (result, error, data) => {
+                //   console.log(result, error, data);
+                //   // return [result, error, data];
                 // },
-                query: (user) =>{
+                query: (data) =>{
                   return {
                     url: '/topics',
                     // params: { userId: user.id },
@@ -28,5 +43,5 @@ const blogsApi = createApi({
     }
 });
 
-export const { useFetchTopicsQuery  } = blogsApi;
+export const { useFetchTopicsQuery, useFetchCollectionsQuery  } = blogsApi;
 export { blogsApi}
