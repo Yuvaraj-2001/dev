@@ -1,13 +1,41 @@
 import { NavLink } from "react-router-dom";
-// import { FaChevronDown } from "react-icons/fa";
+import { useFetchTopicsQuery } from "../store/apis/blog";
+import { useState } from "react";
+
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 // Function to determine the active class for NavLink
 const getActiveClass = ({ isActive }) => {
     return isActive ? "text-purple-500" : "hover:text-white hover:underline";
 };
 
 export default function Header() {
+
+  const {data, error, isLoading} =  useFetchTopicsQuery();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+  const redirect = (p) => {
+    console.log(p);
+  }
+
+  console.log(data, error, isLoading);
+  let content;
+    if(isLoading){
+        content = <div className="flex justify-center items-center h-full">
+            <div className="w-12 h-12 rounded-full bg-slate-300 animate-spin" /> loading...
+        </div>
+    }else if(data){
+        content = data.map((n)=> <li onClick={()=>redirect(n)}><span href="#" className="hover:text-gray-300">{n.name}</span></li>)  
+        // <li><a href="#" className="hover:text-gray-300">About</a></li>
+        // <li><a href="#" className="hover:text-gray-300">Services</a></li>
+        // <li><a href="#" className="hover:text-gray-300">Contact</a></li>
+    }
+
     return (
         <div className="w-full fixed bg-gray-800 border-b border-double border-purple-500" style={{zIndex: 2}}>
+
             <div className="container mx-auto">
                 <div className="w-full py-5 mob:px-8 des:px-10">
                     <div className="flex justify-between items-center">
@@ -33,10 +61,18 @@ export default function Header() {
                                         <span className="text-purple-500">#</span> About Me
                                     </NavLink>
                                 </li>
-                                <li className="border-2 border-slate-200 px-4 border-1px rounded-lg">
-                                    <NavLink to="/learn" className={getActiveClass}>
+                                <li className="border-2 border-slate-200 px-4 border-1px rounded-lg relative bg-purple-500">
+                                   <div className="flex items-center gap-2 purple-500" onClick={toggleMenu}>Learn {!isOpen ? <FaChevronDown size={15}/> :<FaChevronUp size={15}/>}</div> 
+                                    {isOpen && <div className="absolute left-0">
+                                        <ul className="border-2 border-slate-200 p-2 rounded-lg bg-slate-500">
+                                            {content}
+                                        </ul>
+                                    </div>}
+                                    
+
+                                    {/* <NavLink to="/learn" className={getActiveClass}>
                                         <span className="text-purple-500"></span> Learn
-                                    </NavLink>
+                                    </NavLink> */}
                                 </li>
                                 <li>
                                     <NavLink to="/medium" className={getActiveClass}>
@@ -56,6 +92,11 @@ export default function Header() {
                                 <li>
                                     <NavLink to="/login" className={getActiveClass}>
                                         <span className="text-purple-500">#</span> Login
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/write" className={getActiveClass}>
+                                        <span className="text-purple-500">#</span> Write
                                     </NavLink>
                                 </li>
                             </ul>

@@ -13,7 +13,7 @@ function Stackblitz(){
    
             <Heading icon={<FaJs color='#facc14' size={40}/>} text="" line={true} arrow="All collections"/>
             <div className="grid grid-cols-4 gap-6 py-2r">
-                {stackblitz.angular.map((item, index) => (
+                {stackblitz.js.map((item, index) => (
                     <StackblitzCard key={index} icon={<FaJs color='#facc14' size={30}/>} color="yellow-400" props={item} />
                 ))}
             </div> 
