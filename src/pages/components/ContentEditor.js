@@ -1,14 +1,19 @@
 
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
-const MediumLikeEditor = () => {
+const MediumLikeEditor = ({handleChange}) => {
   const [showToolbar, setShowToolbar] = useState(false);
   const [toolbarPosition, setToolbarPosition] = useState({ top: 0, left: 0 });
   const [showLinkInput, setShowLinkInput] = useState(false);
   const [linkUrl, setLinkUrl] = useState("");
   const editorRef = useRef();
 
+
+  const reciveChange = () => {
+    handleChange(editorRef.current)
+  }
+ 
   const handleTextSelection = () => {
     const selection = window.getSelection();
     const selectedText = selection.toString();
@@ -49,8 +54,10 @@ const MediumLikeEditor = () => {
       <div
         ref={editorRef}
         contentEditable
+        onBlur={reciveChange}
         suppressContentEditableWarning
         onMouseUp={handleTextSelection}
+        className="text-3r"
         style={{
           border: "1px solid #ccc",
           padding: "10px",
@@ -65,6 +72,7 @@ const MediumLikeEditor = () => {
 
       {showToolbar && (
         <div
+          className="text-2.5r flex gap-2r"
           style={{
             position: "absolute",
             top: toolbarPosition.top,
@@ -73,8 +81,6 @@ const MediumLikeEditor = () => {
             color: "#fff",
             padding: "5px 10px",
             borderRadius: "5px",
-            display: "flex",
-            gap: "10px",
             transform: "translateX(-50%)",
             zIndex: 1000,
           }}
@@ -145,6 +151,7 @@ const MediumLikeEditor = () => {
             placeholder="Enter URL"
             value={linkUrl}
             onChange={(e) => setLinkUrl(e.target.value)}
+            className="text-slate-200"
             style={{
               padding: "5px",
               marginRight: "5px",
