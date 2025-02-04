@@ -1,6 +1,7 @@
 
 
 import React, { useState, useRef, useEffect } from "react";
+import "./custom.module.css";
 
 const MediumLikeEditor = ({handleChange}) => {
   const [showToolbar, setShowToolbar] = useState(false);
@@ -57,7 +58,7 @@ const MediumLikeEditor = ({handleChange}) => {
         onBlur={reciveChange}
         suppressContentEditableWarning
         onMouseUp={handleTextSelection}
-        className="text-3r"
+        className="text-3r contentEdit"
         style={{
           border: "1px solid #ccc",
           padding: "10px",
@@ -151,7 +152,7 @@ const MediumLikeEditor = ({handleChange}) => {
             placeholder="Enter URL"
             value={linkUrl}
             onChange={(e) => setLinkUrl(e.target.value)}
-            className="text-slate-200"
+            className="text-black"
             style={{
               padding: "5px",
               marginRight: "5px",

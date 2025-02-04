@@ -6,3 +6,8 @@ html{
     @apply bg-gray-800;
     font-size: 10px;
 }
+
+.contentEdit a {
+    text-decoration: underline;
+    color: #00ff2b;
+}
