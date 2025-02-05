@@ -15,6 +15,45 @@ const blogsApi = createApi({
           //   console.log(result, error, data);
           //   // return [{type: 'Album', id: data.id}];
           // },
+
+          postBlog: builder.mutation({
+              query: (data) => {
+                debugger
+                return {
+                  url: '/collections',
+                  // params: { userId: user.name },
+                  method: 'GET',
+                  // body: {
+                  //   title: data.title,
+
+                  //   // title: faker.commerce.productName(),
+                  //   // userId: user.id,
+                  // },
+                }
+              }
+
+          }),
+          postCollection: builder.mutation({
+
+              query: (data) => {
+                debugger
+               
+                
+                return {
+                  url: '/collections',
+                  // params: { userId: user.name },
+                  method: 'GET',
+                  // body: {
+                  //   title: data.title,
+
+                  //   // title: faker.commerce.productName(),
+                  //   // userId: user.id,
+                  // },
+                }
+              }
+
+          }),
+
             fetchCollections: builder.query({
               query: (data) =>{
                 if (!data) {
@@ -43,5 +82,5 @@ const blogsApi = createApi({
     }
 });
 
-export const { useFetchTopicsQuery, useFetchCollectionsQuery  } = blogsApi;
+export const { useFetchTopicsQuery, useFetchCollectionsQuery, usePostCollectionMutation, usePostBlogMutation  } = blogsApi;
 export { blogsApi}

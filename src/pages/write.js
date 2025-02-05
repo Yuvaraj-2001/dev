@@ -1,6 +1,7 @@
-import { useState, useReducer } from "react";
+import { useState, useReducer, useEffect } from "react";
 import SelectTopics from "./write/selectTopics";
 import ContentEditor from "./components/ContentEditor";
+import { usePostCollectionMutation, usePostBlogMutation } from "../store/apis/blog";
 
 
 const initialState = { topicId: null, collectionTitle: null, blogTitle: null };
@@ -21,8 +22,17 @@ function reducer(state, action) {
 
 function WriteBlog(){
 
+
+    const [ sendCollections, collections ] = usePostCollectionMutation();
+    const [ sendBlog, blogs ] = usePostBlogMutation();
+
+
     const [inputState, dispatch] = useReducer(reducer, initialState);
     const [divContent, setDivContent] = useState();
+
+    // useEffect(() => {
+
+    // }, [])
 
     const logChange = (ref) => {
         console.log("ref", ref);  // Logs the selected topic id when a topic is selected from the dropdown
@@ -43,8 +53,24 @@ function WriteBlog(){
     };
 
     const handleSubmit = () => {
-        console.log(inputState)
-        console.log("click me ", divContent)
+        const data = { ...inputState, blogContent: [divContent?.outerHTML]};
+        console.log(data);
+        if(!inputState.topicId || !inputState.blogTitle || !inputState.collectionTitle) {
+            alert("Please fill out all required fields");  // Alert user if required fields are not filled out.
+            return;
+        }
+
+        const sendCollectionAndPublish = async () => {
+           const collectionResponse = await sendCollections(data);
+           debugger
+           const collectionID = collectionResponse;
+           const blogResponse = await sendBlog(collectionID);
+            console.log(blogResponse);
+            dispatch({ type:'reset' });  // Reset the form state after publishing the blog.
+        }
+        sendCollectionAndPublish();
+
+        // console.log("click me ", divContent)/
     };
 
     return (
