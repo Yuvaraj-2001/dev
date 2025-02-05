@@ -19,6 +19,7 @@ export default function Header() {
   };
   const redirect = (p) => {
     console.log(p);
+    toggleMenu();
     navigate('/blogs' + '?id=' + btoa(p.id))
   }
 
