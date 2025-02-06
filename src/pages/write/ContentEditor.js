@@ -3,16 +3,26 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./custom.module.css";
 
-const MediumLikeEditor = ({handleChange}) => {
+const MediumLikeEditor = ({handleChange, value, index, remove}) => {
   const [showToolbar, setShowToolbar] = useState(false);
   const [toolbarPosition, setToolbarPosition] = useState({ top: 0, left: 0 });
   const [showLinkInput, setShowLinkInput] = useState(false);
   const [linkUrl, setLinkUrl] = useState("");
   const editorRef = useRef();
 
+  useEffect(() => {
+    debugger
+    if (value !== undefined) {
+      editorRef.current = value.content;
+      console.log("Ref updated:", editorRef.current.innerHTML);
+    }
+  }, [value]); 
+
 
   const reciveChange = () => {
-    handleChange(editorRef.current)
+    debugger
+    console.log("Content changed:", editorRef);
+    handleChange(editorRef.current, index)
   }
  
   const handleTextSelection = () => {
@@ -51,7 +61,8 @@ const MediumLikeEditor = ({handleChange}) => {
   };
 
   return (
-    <div>
+    <div className="mt-5">
+      <button className="border border-red-400 p-2 rounded" onClick={() => remove(index)}>Remove</button> {index}
       <div
         ref={editorRef}
         contentEditable
@@ -65,10 +76,9 @@ const MediumLikeEditor = ({handleChange}) => {
           borderRadius: "5px",
           minHeight: "150px",
           cursor: "text",
-          margin: "20px 0",
         }}
       >
-        Select some text to see the toolbar and apply formatting or add a link.
+        
       </div>
 
       {showToolbar && (

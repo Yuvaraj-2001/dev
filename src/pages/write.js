@@ -1,6 +1,7 @@
 import { useState, useReducer, useEffect } from "react";
 import SelectTopics from "./write/selectTopics";
 import ContentEditor from "./write/ContentEditor";
+import Editor from "./write/editor";
 import { usePostCollectionMutation, usePostBlogMutation } from "../store/apis/blog";
 
 
@@ -34,8 +35,9 @@ function WriteBlog(){
 
     // }, [])
 
-    const logChange = (ref) => {
+    const editorChange = (ref) => {
         console.log("ref", ref);  // Logs the selected topic id when a topic is selected from the dropdown
+        debugger
         setDivContent(ref);
     }
 
@@ -80,11 +82,13 @@ function WriteBlog(){
             <input className="w-full p-2 border text-black text-1.5r" type="text" value={inputState.collectionTitle || ''} onInput={ handleNavTitle} />
             <div className="text-1.5r my-2 mt-3">Blog title:</div>
             <input className="w-full p-2 border text-black text-1.5r" type="text" value={inputState.blogTitle || ''} onInput={handleBlogTitle} />
+            
+            <Editor blurChange={editorChange} />
 
-            <ContentEditor handleChange={logChange}/>
+            {/* <ContentEditor handleChange={logChange}/>
             <button className="w-full bg-purple-500 text-white font-bold py-5 px-4 rounded-lg hover:bg-purple-600 text-2r" onClick={handleSubmit}>
                 Submit blog
-            </button>
+            </button> */}
             <br/>
             <br/>
 
