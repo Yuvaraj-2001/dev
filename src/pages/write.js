@@ -1,6 +1,6 @@
 import { useState, useReducer, useEffect } from "react";
 import SelectTopics from "./write/selectTopics";
-import ContentEditor from "./components/ContentEditor";
+import ContentEditor from "./write/ContentEditor";
 import { usePostCollectionMutation, usePostBlogMutation } from "../store/apis/blog";
 
 
@@ -62,7 +62,6 @@ function WriteBlog(){
 
         const sendCollectionAndPublish = async () => {
            const collectionResponse = await sendCollections(data);
-           debugger
            const collectionID = collectionResponse;
            const blogResponse = await sendBlog(collectionID);
             console.log(blogResponse);
