@@ -18,7 +18,6 @@ const blogsApi = createApi({
 
           postBlog: builder.mutation({
               query: (data) => {
-                debugger
                 return {
                   url: '/collections',
                   // params: { userId: user.name },
@@ -36,8 +35,6 @@ const blogsApi = createApi({
           postCollection: builder.mutation({
 
               query: (data) => {
-                debugger
-               
                 
                 return {
                   url: '/collections',

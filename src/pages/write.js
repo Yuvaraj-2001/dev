@@ -37,7 +37,6 @@ function WriteBlog(){
 
     const editorChange = (ref) => {
         console.log("ref", ref);  // Logs the selected topic id when a topic is selected from the dropdown
-        debugger
         setDivContent(ref);
     }
 

@@ -31,7 +31,6 @@ function Editor({ blurChange }){
     const [allEditor, setEditor] = useReducer(reducer, initialState);
 
     const contentChange = (value, index) => {
-        debugger
         setEditor({
             type: 'contentEdit',
             payload: { content: value },
@@ -52,7 +51,6 @@ function Editor({ blurChange }){
     };
 
     const addContent = () => {
-        debugger
         setEditor({
             type: 'content',
             payload: { content: '' },
