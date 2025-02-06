@@ -1,6 +1,5 @@
-import { useState, useReducer, useEffect } from "react";
+import { useState, useReducer } from "react";
 import SelectTopics from "./write/selectTopics";
-import ContentEditor from "./write/ContentEditor";
 import Editor from "./write/editor";
 import { usePostCollectionMutation, usePostBlogMutation } from "../store/apis/blog";
 
@@ -54,6 +53,7 @@ function WriteBlog(){
     };
 
     const handleSubmit = () => {
+        debugger
         const data = { ...inputState, blogContent: [divContent?.outerHTML]};
         console.log(data);
         if(!inputState.topicId || !inputState.blogTitle || !inputState.collectionTitle) {
@@ -74,8 +74,13 @@ function WriteBlog(){
     };
 
     return (
-        <div>
-            <SelectTopics topicSend={handleTopicChange}/>
+        <div className="pt-8">
+            <div className="flex justify-between pb-4">
+                <SelectTopics topicSend={handleTopicChange}/>
+                <button className="bg-purple-500 text-white font-bold py-2 px-2 rounded-lg hover:bg-purple-600 text-1.5r" onClick={handleSubmit}>
+                    Submit blog
+                </button>
+            </div>
 
             <div className="text-1.5r my-2 mt-3">Navigation Title:</div>
             <input className="w-full p-2 border text-black text-1.5r" type="text" value={inputState.collectionTitle || ''} onInput={ handleNavTitle} />
@@ -84,10 +89,7 @@ function WriteBlog(){
             
             <Editor blurChange={editorChange} />
 
-            {/* <ContentEditor handleChange={logChange}/>
-            <button className="w-full bg-purple-500 text-white font-bold py-5 px-4 rounded-lg hover:bg-purple-600 text-2r" onClick={handleSubmit}>
-                Submit blog
-            </button> */}
+           
             <br/>
             <br/>
 
