@@ -19,7 +19,6 @@ const MediumLikeEditor = ({handleChange, value, index, remove}) => {
 
 
   // const reciveChange = () => {
-  //   debugger
   //   console.log("Content changed:", editorRef);
   //   handleChange(editorRef.current, index)
   // }

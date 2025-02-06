@@ -53,8 +53,7 @@ function WriteBlog(){
     };
 
     const handleSubmit = () => {
-        debugger
-        const data = { ...inputState, blogContent: [divContent?.outerHTML]};
+        const data = { ...inputState, blogContent: divContent};
         console.log(data);
         if(!inputState.topicId || !inputState.blogTitle || !inputState.collectionTitle) {
             alert("Please fill out all required fields");  // Alert user if required fields are not filled out.
@@ -63,8 +62,8 @@ function WriteBlog(){
 
         const sendCollectionAndPublish = async () => {
            const collectionResponse = await sendCollections(data);
-           const collectionID = collectionResponse;
-           const blogResponse = await sendBlog(collectionID);
+           let collectionID = collectionResponse;
+           const blogResponse = await sendBlog({...data, collectionId: collectionID});
             console.log(blogResponse);
             dispatch({ type:'reset' });  // Reset the form state after publishing the blog.
         }

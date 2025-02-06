@@ -19,19 +19,38 @@ const blogsApi = createApi({
           postBlog: builder.mutation({
               query: (data) => {
                 return {
-                  url: '/collections',
+                  url: '/blogs',
                   // params: { userId: user.name },
-                  method: 'GET',
-                  // body: {
-                  //   title: data.title,
-
-                  //   // title: faker.commerce.productName(),
-                  //   // userId: user.id,
-                  // },
+                  method: 'POST',
+                  body: {
+                    content: data.blogContent,
+                    collections_id: data.collectionId,
+                    heading:data.blogTitle
+                    // title: faker.commerce.productName(),
+                    // userId: user.id,
+                  },
                 }
               }
 
           }),
+          fetchAllCollections: builder.query({
+
+            query: (data) => {
+              
+              return {
+                url: '/collections',
+                // params: { userId: user.name },
+                method: 'GET',
+                // body: {
+                //   title: data.title,
+
+                //   // title: faker.commerce.productName(),
+                //   // userId: user.id,
+                // },
+              }
+            }
+
+        }),
           postCollection: builder.mutation({
 
               query: (data) => {
@@ -39,13 +58,11 @@ const blogsApi = createApi({
                 return {
                   url: '/collections',
                   // params: { userId: user.name },
-                  method: 'GET',
-                  // body: {
-                  //   title: data.title,
-
-                  //   // title: faker.commerce.productName(),
-                  //   // userId: user.id,
-                  // },
+                  method: 'POST',
+                  body: {
+                    title: data.collectionTitle,
+                    topics_id: data.topicId
+                  },
                 }
               }
 
@@ -79,5 +96,5 @@ const blogsApi = createApi({
     }
 });
 
-export const { useFetchTopicsQuery, useFetchCollectionsQuery, usePostCollectionMutation, usePostBlogMutation  } = blogsApi;
+export const { useFetchTopicsQuery, useFetchCollectionsQuery, usePostCollectionMutation, usePostBlogMutation, useFetchAllCollectionsQuery  } = blogsApi;
 export { blogsApi}
