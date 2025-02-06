@@ -13,17 +13,24 @@ const MediumLikeEditor = ({handleChange, value, index, remove}) => {
   useEffect(() => {
     debugger
     if (value !== undefined) {
-      editorRef.current = value.content;
+      editorRef.innerHTML = value.content;
       console.log("Ref updated:", editorRef.current.innerHTML);
     }
   }, [value]); 
 
 
+  // const reciveChange = () => {
+  //   debugger
+  //   console.log("Content changed:", editorRef);
+  //   handleChange(editorRef.current, index)
+  // }
   const reciveChange = () => {
     debugger
-    console.log("Content changed:", editorRef);
-    handleChange(editorRef.current, index)
-  }
+    if (editorRef.current) {
+      console.log("Content changed:", editorRef.current.innerHTML);
+      handleChange(editorRef.current.innerHTML, index); // Pass innerHTML to parent
+    }
+  };
  
   const handleTextSelection = () => {
     const selection = window.getSelection();

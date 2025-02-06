@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import ContentEditor from './ContentEditor';
 
 const initialState  = [];
@@ -9,7 +9,7 @@ function reducer(state, action) {
             return [...state, {id: Date.now(), type: 'code', content: action.payload.code, contentType: action.payload.contentType, link: action.payload.link, source: action.payload.source }]
       case 'contentEdit':
         return state.map(item =>
-            item.id === action.payload.id ? { ...item, content: action.payload.content } : item
+            item.id === action.id ? { ...item, content: action.payload.content } : item
           );
       case 'content':
             return [...state, {id: Date.now(), type: 'content', content: action.payload.content  }]
@@ -37,8 +37,11 @@ function Editor({ blurChange }){
             payload: { content: value },
             id: index
         });
-        blurChange(allEditor);
     };
+
+    useEffect(()=>{
+        blurChange(allEditor);
+    }, [allEditor])
 
     const removeIndex = (id) => {
         setEditor({
