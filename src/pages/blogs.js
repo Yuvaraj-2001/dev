@@ -1,34 +1,68 @@
-import { useEffect } from "react";
-// import { getMediumBlogs } from "../services/medium";
-import { useFetchCollectionsQuery } from "../store/apis/blog";
+import { useEffect, useState } from "react";
+import { useFetchCollectionsQuery, useFetchBlogQuery } from "../store/apis/blog";
 import { useSearchParams } from "react-router-dom";
 
 export default function Blogs() {
-  const [searchParams] = useSearchParams();
-  const ID = searchParams.get("id")
-  // if(!ID){
-  //   return <h1>No Blog ID provided</h1>
-  // }
-  const {data, error, isLoading, refetch} =  useFetchCollectionsQuery(ID);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const learnID = searchParams.get("id");
+  const urlBlogID = searchParams.get("blog"); // Blog ID from URL
 
+  const [blogID, setBlogID] = useState(urlBlogID || null); // Local state for blogID
 
+  // Fetch Collections
+  const { data: collections, error, isLoading } = useFetchCollectionsQuery(learnID, { skip: !learnID });
+
+  // Fetch Blog only when blogID is available
+  const { data: blogData, error: blogError, isLoading: blogLoading } = useFetchBlogQuery(blogID, { skip: !blogID });
+
+  // Effect to fetch blog after collections load
   useEffect(() => {
-    refetch(ID);
-    console.log("Route changed:", ID);
-  }, [ID]); 
-
-  let content;
-    if(isLoading){
-        content = <div className="flex justify-center items-center h-full">
-            <div className="w-12 h-12 rounded-full bg-slate-300 animate-spin" /> loading...
-        </div>
-    }else if(data){
-      content = data?.map((n)=> <li><span className="hover:text-gray-300">{n.title}</span></li>)  
-    }else if(error){
-      return <div>Something Went Wrong</div>
+    if (collections && collections.length > 0 && !urlBlogID) {
+      const firstBlogID = btoa(collections[0].topics_id); // Encode topics_id
+      setBlogID(firstBlogID);
+      setSearchParams({ id: learnID, blog: firstBlogID });
     }
+  }, [collections, urlBlogID, learnID]);
 
-  return <div>
-      {content}
-  </div>;
+  // Collection Content
+  let collectionContent;
+  if (isLoading) {
+    collectionContent = <div>Loading collections...</div>;
+  } else if (error) {
+    collectionContent = <div>Error loading collections</div>;
+  } else if (collections) {
+    collectionContent = collections.map((n) => (
+      <li key={n.id}>
+        <span className="hover:text-gray-300">{n.title}</span>
+      </li>
+    ));
+  }
+
+  // Blog Content
+  let blogContent;
+  if (blogLoading) {
+    blogContent = <div>Loading blog...</div>;
+  } else if (blogError) {
+    blogContent = <div>Error loading blog</div>;
+  } else if (blogData) {
+    const firstBlog = blogData[0];
+    const jsonContent = JSON.parse(firstBlog.content);
+    blogContent = (
+      <div>
+        <h1>{firstBlog.heading}</h1>
+        {jsonContent.map((x, index) => (
+          <div key={index}>{x}</div>
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <div className="flex">
+        <div className="w-1/5">{collectionContent}</div>
+        <div className="w-3/5">{blogContent}</div>
+      </div>
+    </div>
+  );
 }

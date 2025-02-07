@@ -16,6 +16,21 @@ const blogsApi = createApi({
           //   // return [{type: 'Album', id: data.id}];
           // },
 
+          fetchBlog: builder.query({
+            
+            query: (data) => {
+              debugger
+              if (!data) {
+                throw new Error("Invalid request: Data is required"); // Throws error
+              }
+              debugger
+              return {
+                url: '/blogs/' + atob(data),
+                method: 'GET',
+              }
+            }
+          }),
+
           postBlog: builder.mutation({
               query: (data) => {
                 return {
@@ -50,11 +65,10 @@ const blogsApi = createApi({
               }
             }
 
-        }),
-          postCollection: builder.mutation({
+        }), 
 
+          postCollection: builder.mutation({
               query: (data) => {
-                
                 return {
                   url: '/collections',
                   // params: { userId: user.name },
@@ -65,7 +79,6 @@ const blogsApi = createApi({
                   },
                 }
               }
-
           }),
 
             fetchCollections: builder.query({
@@ -73,6 +86,7 @@ const blogsApi = createApi({
                 if (!data) {
                   throw new Error("Invalid request: Data is required"); // Throws error
                 }
+                debugger
                 return {
                   url: '/collectionsById/'+ atob(data),
                   method: 'GET',
@@ -96,5 +110,5 @@ const blogsApi = createApi({
     }
 });
 
-export const { useFetchTopicsQuery, useFetchCollectionsQuery, usePostCollectionMutation, usePostBlogMutation, useFetchAllCollectionsQuery  } = blogsApi;
+export const { useFetchTopicsQuery, useFetchCollectionsQuery, usePostCollectionMutation, usePostBlogMutation, useFetchAllCollectionsQuery, useFetchBlogQuery  } = blogsApi;
 export { blogsApi}
