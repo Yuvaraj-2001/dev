@@ -1,57 +1,82 @@
-import { useState, useReducer } from "react";
+import { useEffect, useRef } from "react";
 import { Editor } from "@monaco-editor/react";
 
-const reducer = (state, action) =>{
-    switch (action.type) {
-        case 'codeType':
-            return {...state, codeType: action.payload};
-        case 'btn':
-            return {...state, btn: action.payload};
-        case 'code':
-            return {...state, code: action.payload};
-        case 'link':
-            return {...state, link: action.payload};
-        default:
-            return state;
-    }
-};
-
 function CodeEditor({ value, onUpdate }) {
-    console.log('intital', value);
-    const [codeReducerVal, setCodeReducerVal] = useReducer(reducer, value);
+    const editorRef = useRef(null);
 
+    // Handle editor changes
     const handleEditorChange = (newValue) => {
-        console.log("onChange - New Code:", newValue);
-        setCodeReducerVal({
-            type: 'code',
-            payload: newValue,
+        value.code = newValue;
+        onUpdate({ ...value });
+    };
+
+    // Handle blur (update parent state)
+    const handleEditorDidMount = (editor) => {
+        editorRef.current = editor;
+        editor.onDidBlurEditorText(() => {
+            value.code = editor.getValue();
+            onUpdate({ ...value });
         });
     };
 
-    const handleEditorDidMount = (editor, monaco) => {
-        editor.onDidBlurEditorText(() => {
-            const updatedCode = editor.getValue(); // Get the latest value from editor
-            console.log("onBlur - Updated Code:", updatedCode);
-            onUpdate(updatedCode); // Call parent update function when blur event occurs
-        });
+    // Handle language switch on button click
+    const handleLanguageChange = (newLang) => {
+        value.codeType = newLang;
+        onUpdate({ ...value });
+    };
+
+    // Handle input changes
+    const handleInputChange = (e, field) => {
+        debugger
+        value[field] = e.target.value;
+        onUpdate({ ...value });
     };
 
     return (
         <div className="border border-slate-200 p-4 mt-3">
+            {/* Buttons to switch language */}
             <div className="flex gap-3 cursor-pointer mb-3">
-                <div className="border border-purple-400 p-4">HTML</div>
-                <div className="border border-purple-400 p-4">CSS</div>
-                <div className="border border-purple-400 p-4">JAVASCRIPT</div>
-                <div className="flex">
-                    Link: <input type="text" className="w-full text-black text-1.5r" />
-                    BTN: <input type="text" className="w-full text-black text-1.5r" />
-                </div>
+                {["html", "css", "javascript"].map((lang) => (
+                    <button
+                        key={lang}
+                        className={`border px-4 py-2 ${
+                            value.codeType === lang ? "bg-purple-400 text-white" : "border-purple-400"
+                        }`}
+                        onClick={() => handleLanguageChange(lang)}
+                    >
+                        {lang.toUpperCase()}
+                    </button>
+                ))}
             </div>
+
+            {/* Input fields for link & button text */}
+            <div className="flex gap-3 mb-3">
+                <label className="flex items-center gap-2">
+                    Link:
+                    <input
+                        type="text"
+                        className="text-black border p-1"
+                        value={value.link}
+                        onChange={(e) => handleInputChange(e, "link")}
+                    />
+                </label>
+                <label className="flex items-center gap-2">
+                    BTN:
+                    <input
+                        type="text"
+                        className="text-black border p-1"
+                        value={value.btn}
+                        onChange={(e) => handleInputChange(e, "btn")}
+                    />
+                </label>
+            </div>
+
+            {/* Code Editor */}
             <Editor
                 height="300px"
                 theme="vs-dark"
                 language={value.codeType}
-                value={codeReducerVal.code}
+                value={value.code}
                 onChange={handleEditorChange}
                 onMount={handleEditorDidMount}
             />

@@ -54,6 +54,7 @@ function WriteBlog(){
     const handleSubmit = () => {
         const data = { ...inputState, blogContent: divContent};
         console.log(data);
+        return
         if(!inputState.topicId || !inputState.blogTitle || !inputState.collectionTitle) {
             alert("Please fill out all required fields");  // Alert user if required fields are not filled out.
             return;
