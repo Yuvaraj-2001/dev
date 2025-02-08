@@ -35,7 +35,6 @@ function WriteBlog(){
     // }, [])
 
     const editorChange = (ref) => {
-        console.log("ref", ref);  // Logs the selected topic id when a topic is selected from the dropdown
         setDivContent(ref);
     }
 
@@ -69,7 +68,6 @@ function WriteBlog(){
         }
         sendCollectionAndPublish();
 
-        // console.log("click me ", divContent)
     };
 
     return (

@@ -1,12 +1,13 @@
 import { useEffect, useReducer } from 'react';
 import ContentEditor from './ContentEditor';
+import CodeEditor from './CodeEditor';
 
 const initialState  = [];
 
 function reducer(state, action) {
     switch (action.type) {
       case 'code':
-            return [...state, {id: Date.now(), type: 'code', content: action.payload.code, contentType: action.payload.contentType, link: action.payload.link, source: action.payload.source }]
+            return [...state, {id: Date.now(), type: 'code', code: action.payload.code, codeType: action.payload.codeType || '', link: action.payload.link || '', btn: action.payload.btn || '' }]
       case 'contentEdit':
         return state.map(item =>
             item.id === action.id ? { ...item, content: action.payload.content } : item
@@ -17,7 +18,6 @@ function reducer(state, action) {
             return [...state, {id: Date.now(), type: 'image', image: action.payload.image, link: action.payload.link, source: action.payload.source}]
        case 'remove':
             const newState = state.filter(item => item.id !== action.payload.id);
-            console.log(newState);
             return newState;
       case 'reset':
         return initialState;
@@ -57,9 +57,19 @@ function Editor({ blurChange }){
         });
     }
 
+    const addCodeEditor = () => {
+        setEditor({
+            type: 'code',
+            payload: { code: '', codeType: 'javascript', link:'', btn: ''  },
+        });
+    }
+
     const content = allEditor.map((editor) => {
         if (editor.type === 'content') {
             return <ContentEditor key={editor.id} value={editor} index={editor.id} remove={removeIndex} handleChange={contentChange}/>
+        }
+        if (editor.type === 'code ') {
+            return <CodeEditor key={editor.id} value={editor} index={editor.id} remove={removeIndex}/>
         }
     })
 
@@ -70,7 +80,7 @@ function Editor({ blurChange }){
         {content}
 
         <div className='mt-4 flex text-slate-200 justify-center gap-8'>
-            <button className='p-5 border border-purple-300' >Code Editor</button>
+            <button className='p-5 border border-purple-300' onClick={addCodeEditor} >Code Editor</button>
             <button className='p-5 border border-purple-300' onClick={addContent}>Content</button>
             <button className='p-5 border border-purple-300'>Image</button>
         </div>

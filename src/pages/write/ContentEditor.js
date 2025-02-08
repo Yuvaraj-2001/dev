@@ -13,18 +13,12 @@ const MediumLikeEditor = ({handleChange, value, index, remove}) => {
   useEffect(() => {
     if (value !== undefined) {
       editorRef.innerHTML = value.content;
-      console.log("Ref updated:", editorRef.current.innerHTML);
     }
   }, [value]); 
 
 
-  // const reciveChange = () => {
-  //   console.log("Content changed:", editorRef);
-  //   handleChange(editorRef.current, index)
-  // }
   const reciveChange = () => {
     if (editorRef.current) {
-      console.log("Content changed:", editorRef.current.innerHTML);
       handleChange(editorRef.current.innerHTML, index); // Pass innerHTML to parent
     }
   };

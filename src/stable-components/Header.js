@@ -23,7 +23,6 @@ export default function Header() {
     navigate('/blogs' + '?id=' + btoa(p.id))
   }
 
-  console.log(data, error, isLoading);
   let content;
     if(isLoading){
         content = <div className="flex justify-center items-center h-full">
