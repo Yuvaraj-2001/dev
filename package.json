@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@monaco-editor/react": "^4.6.0",
     "@reduxjs/toolkit": "^1.8.6",
     "axios": "^1.7.9",
     "cra-template": "1.2.0",

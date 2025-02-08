@@ -8,6 +8,11 @@ function reducer(state, action) {
     switch (action.type) {
       case 'code':
             return [...state, {id: Date.now(), type: 'code', code: action.payload.code, codeType: action.payload.codeType || '', link: action.payload.link || '', btn: action.payload.btn || '' }]
+    
+      case 'codeEdit':
+        return state.map(item =>
+            item.id === action.id ? { ...item, code: action.payload.code, codeType: action.payload.codeType || '', link: action.payload.link || '', btn: action.payload.btn || '' } : item
+          );
       case 'contentEdit':
         return state.map(item =>
             item.id === action.id ? { ...item, content: action.payload.content } : item
@@ -64,12 +69,19 @@ function Editor({ blurChange }){
         });
     }
 
+    const editFromCodeEditor = (value) => {
+
+        console.log('parent', value);
+
+
+    };
+    console.log(allEditor);
     const content = allEditor.map((editor) => {
         if (editor.type === 'content') {
             return <ContentEditor key={editor.id} value={editor} index={editor.id} remove={removeIndex} handleChange={contentChange}/>
         }
-        if (editor.type === 'code ') {
-            return <CodeEditor key={editor.id} value={editor} index={editor.id} remove={removeIndex}/>
+        if (editor.type === 'code') {
+            return <CodeEditor key={editor.id} value={editor} index={editor.id} remove={removeIndex} onUpdate={editFromCodeEditor}/>
         }
     })
 
