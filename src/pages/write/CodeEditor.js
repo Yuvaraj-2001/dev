@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Editor } from "@monaco-editor/react";
 
-function CodeEditor({ value, onUpdate }) {
+function CodeEditor({ value, onUpdate, remove, index }) {
     const editorRef = useRef(null);
 
     // Handle editor changes
@@ -33,6 +33,9 @@ function CodeEditor({ value, onUpdate }) {
 
     return (
         <div className="border border-slate-200 p-4 mt-3">
+
+          <button className="border border-red-400 p-2 rounded" onClick={() => remove(index)}>Remove</button> {index}
+            
             {/* Buttons to switch language */}
             <div className="flex gap-3 cursor-pointer mb-3">
                 {["html", "css", "javascript"].map((lang) => (

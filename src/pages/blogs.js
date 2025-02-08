@@ -60,12 +60,11 @@ export default function Blogs() {
   } else if (blogData) {
     const firstBlog = blogData[0];
     const jsonContent = JSON.parse(firstBlog.content);
-    debugger
     blogContent = (
       <div>
         <h1>{firstBlog.heading}</h1>
         {jsonContent.map((x, index) => (
-          <div key={index}>{x.content}</div>
+          <div key={index}>{JSON.stringify(x)}</div>
         ))}
       </div>
     );
