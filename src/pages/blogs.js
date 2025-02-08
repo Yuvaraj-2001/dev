@@ -18,11 +18,19 @@ export default function Blogs() {
   // Effect to fetch blog after collections load
   useEffect(() => {
     if (collections && collections.length > 0 && !urlBlogID) {
-      const firstBlogID = btoa(collections[0].topics_id); // Encode topics_id
+      const firstBlogID = btoa(collections[0].id); 
       setBlogID(firstBlogID);
       setSearchParams({ id: learnID, blog: firstBlogID });
     }
   }, [collections, urlBlogID, learnID]);
+
+  // Handle click on a collection item
+  const handleBlogSelect = (topics_id) => {
+    debugger
+    const encodedBlogID = btoa(topics_id);
+    setBlogID(encodedBlogID);
+    setSearchParams({ id: learnID, blog: encodedBlogID });
+  };
 
   // Collection Content
   let collectionContent;
@@ -33,7 +41,12 @@ export default function Blogs() {
   } else if (collections) {
     collectionContent = collections.map((n) => (
       <li key={n.id}>
-        <span className="hover:text-gray-300">{n.title}</span>
+        <span 
+          className="hover:text-gray-300 cursor-pointer" 
+          onClick={() => handleBlogSelect(n.id)}
+        >
+          {n.title}
+        </span>
       </li>
     ));
   }
@@ -47,11 +60,12 @@ export default function Blogs() {
   } else if (blogData) {
     const firstBlog = blogData[0];
     const jsonContent = JSON.parse(firstBlog.content);
+    debugger
     blogContent = (
       <div>
         <h1>{firstBlog.heading}</h1>
         {jsonContent.map((x, index) => (
-          <div key={index}>{x}</div>
+          <div key={index}>{x.content}</div>
         ))}
       </div>
     );
@@ -60,7 +74,9 @@ export default function Blogs() {
   return (
     <div>
       <div className="flex">
-        <div className="w-1/5">{collectionContent}</div>
+        <div className="w-1/5">
+          <ul>{collectionContent}</ul>
+        </div>
         <div className="w-3/5">{blogContent}</div>
       </div>
     </div>
