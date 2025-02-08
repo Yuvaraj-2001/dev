@@ -1,15 +1,31 @@
-import { useState } from "react";
+import { useState, useReducer } from "react";
 import { Editor } from "@monaco-editor/react";
 
-
+const reducer = (state, action) =>{
+    switch (action.type) {
+        case 'codeType':
+            return {...state, codeType: action.payload};
+        case 'btn':
+            return {...state, btn: action.payload};
+        case 'code':
+            return {...state, code: action.payload};
+        case 'link':
+            return {...state, link: action.payload};
+        default:
+            return state;
+    }
+};
 
 function CodeEditor({ value, onUpdate }) {
-    console.log(value);
-    const [code, setCode] = useState(value.code);
+    console.log('intital', value);
+    const [codeReducerVal, setCodeReducerVal] = useReducer(reducer, value);
 
     const handleEditorChange = (newValue) => {
         console.log("onChange - New Code:", newValue);
-        setCode(newValue);
+        setCodeReducerVal({
+            type: 'code',
+            payload: newValue,
+        });
     };
 
     const handleEditorDidMount = (editor, monaco) => {
@@ -35,7 +51,7 @@ function CodeEditor({ value, onUpdate }) {
                 height="300px"
                 theme="vs-dark"
                 language={value.codeType}
-                value={code}
+                value={codeReducerVal.code}
                 onChange={handleEditorChange}
                 onMount={handleEditorDidMount}
             />

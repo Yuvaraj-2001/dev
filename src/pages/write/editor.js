@@ -70,7 +70,7 @@ function Editor({ blurChange }){
     }
 
     const editFromCodeEditor = (value) => {
-
+        
         console.log('parent', value);
 
 
