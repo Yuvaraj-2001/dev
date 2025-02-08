@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const blogsApi = createApi({
     reducerPath: 'blogs',
     baseQuery: fetchBaseQuery({
-      baseUrl: 'http://localhost:3300',
+      baseUrl: window.location.href.includes('localhost') ? 'http://localhost:3300' : 'https://dev-backend-69kv.onrender.com',
     //   fetchFn: async (...args)=>{
     //     await pause(1000);
     //     return fetch(...args);
@@ -19,11 +19,9 @@ const blogsApi = createApi({
           fetchBlog: builder.query({
             
             query: (data) => {
-              debugger
               if (!data) {
                 throw new Error("Invalid request: Data is required"); // Throws error
               }
-              debugger
               return {
                 url: '/blogs/' + atob(data),
                 method: 'GET',
@@ -86,7 +84,6 @@ const blogsApi = createApi({
                 if (!data) {
                   throw new Error("Invalid request: Data is required"); // Throws error
                 }
-                debugger
                 return {
                   url: '/collectionsById/'+ atob(data),
                   method: 'GET',

@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import Home from './pages/home';
 import Portfolio from './pages/portfolio';
-import Blogs from './pages/blogs';
+import Learn from './pages/learn';
 import Medium from './pages/medium';
 import Stackblitz from './pages/stackblitz';
 import Contact from './pages/connect-me';
@@ -26,11 +26,10 @@ function App() {
             <Route path="/connect" element={<Contact />} />
             <Route path="/medium" element={<Medium />} />
             <Route path="/stackblitz" element={<Stackblitz />} />
-            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/learn" element={<Learn />} />
             <Route path="/write" element={<Write />} />
           </Routes>
-        
-     
+
       </div>
       <Footer/>
     </div>

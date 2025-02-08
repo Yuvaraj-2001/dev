@@ -4,12 +4,9 @@ import {redirect} from '../../commons/common-method'
 
 function BlogTemplate({blog, heading}){
 
-
-
     const handleEditorDidMount = (editor) => {
         autoResize(editor);
-      };
-
+    };
       
     const blogContent = blog.map((b) => { 
         if(b.type === 'content'){
@@ -19,7 +16,7 @@ function BlogTemplate({blog, heading}){
             </div>;
         }else if(b.type === 'code'){
             return <div>
-                 <Editor  theme="vs-dark" language={b.codeType}  value={b.code}  onMount={handleEditorDidMount}/>
+                 <Editor  theme="vs-dark" language={b.codeType}  value={b.code}  onMount={handleEditorDidMount} options={{ readOnly: true }} />
                     <div className='flex justify-center items-center gap-4'>
                       <span> Source:</span> <button className='p-3 text-1r border border-purple-400 rounded' onClick={()=> redirect(b.link)}>{b.btn}</button>
                     </div>

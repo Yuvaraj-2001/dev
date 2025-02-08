@@ -28,7 +28,6 @@ export default function Blogs() {
 
   // Handle click on a collection item
   const handleBlogSelect = (topics_id) => {
-    debugger
     const encodedBlogID = btoa(topics_id);
     setBlogID(encodedBlogID);
     setSearchParams({ id: learnID, blog: encodedBlogID });

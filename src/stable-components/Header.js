@@ -20,7 +20,7 @@ export default function Header() {
   const redirect = (p) => {
     console.log(p);
     toggleMenu();
-    navigate('/blogs' + '?id=' + btoa(p.id))
+    navigate('/learn' + '?id=' + btoa(p.id))
   }
 
   let content;
@@ -29,7 +29,7 @@ export default function Header() {
             <div className="w-12 h-12 rounded-full bg-slate-300 animate-spin" /> loading...
         </div>
     }else if(data){
-        content = data.map((n)=> <li onClick={()=>redirect(n)}><span href="#" className="hover:text-gray-300">{n.name}</span></li>)  
+        content = data.map((n,i)=> <li key={i} onClick={()=>redirect(n)}><span href="#" className="hover:text-gray-300">{n.name}</span></li>)  
         // <li><a href="#" className="hover:text-gray-300">About</a></li>
         // <li><a href="#" className="hover:text-gray-300">Services</a></li>
         // <li><a href="#" className="hover:text-gray-300">Contact</a></li>
@@ -91,16 +91,16 @@ export default function Header() {
                                         <span className="text-purple-500">#</span> Connect Me
                                     </NavLink>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <NavLink to="/login" className={getActiveClass}>
                                         <span className="text-purple-500">#</span> Login
                                     </NavLink>
-                                </li>
-                                <li>
+                                </li> */}
+                                {/* <li>
                                     <NavLink to="/write" className={getActiveClass}>
                                         <span className="text-purple-500">#</span> Write
                                     </NavLink>
-                                </li>
+                                </li> */}
                             </ul>
                         </nav>
                     </div>
