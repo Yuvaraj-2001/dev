@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useFetchCollectionsQuery, useFetchBlogQuery } from "../store/apis/blog";
 import { useSearchParams } from "react-router-dom";
+import Collection from "./learn/collection";
 
 export default function Blogs() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -39,16 +40,17 @@ export default function Blogs() {
   } else if (error) {
     collectionContent = <div>Error loading collections</div>;
   } else if (collections) {
-    collectionContent = collections.map((n) => (
-      <li key={n.id}>
-        <span 
-          className="hover:text-gray-300 cursor-pointer" 
-          onClick={() => handleBlogSelect(n.id)}
-        >
-          {n.title}
-        </span>
-      </li>
-    ));
+    collectionContent = <Collection allCollection={collections} blogSelect={handleBlogSelect} />
+    // collectionContent = collections.map((n) => (
+    //   <li key={n.id}>
+    //     <span 
+    //       className="hover:text-gray-300 cursor-pointer" 
+    //       onClick={() => handleBlogSelect(n.id)}
+    //     >
+    //       {n.title}
+    //     </span>
+    //   </li>
+    // ));
   }
 
   // Blog Content
