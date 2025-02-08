@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useFetchCollectionsQuery, useFetchBlogQuery } from "../store/apis/blog";
 import { useSearchParams } from "react-router-dom";
 import Collection from "./learn/collection";
+import BlogTemplate from "./learn/blogTemplate";
 
 export default function Blogs() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -41,16 +42,6 @@ export default function Blogs() {
     collectionContent = <div>Error loading collections</div>;
   } else if (collections) {
     collectionContent = <Collection allCollection={collections} blogSelect={handleBlogSelect} />
-    // collectionContent = collections.map((n) => (
-    //   <li key={n.id}>
-    //     <span 
-    //       className="hover:text-gray-300 cursor-pointer" 
-    //       onClick={() => handleBlogSelect(n.id)}
-    //     >
-    //       {n.title}
-    //     </span>
-    //   </li>
-    // ));
   }
 
   // Blog Content
@@ -61,15 +52,19 @@ export default function Blogs() {
     blogContent = <div>Error loading blog</div>;
   } else if (blogData) {
     const firstBlog = blogData[0];
-    const jsonContent = JSON.parse(firstBlog.content);
-    blogContent = (
-      <div>
-        <h1>{firstBlog.heading}</h1>
-        {jsonContent.map((x, index) => (
-          <div key={index}>{JSON.stringify(x)}</div>
-        ))}
-      </div>
-    );
+    blogContent = JSON.parse(firstBlog.content);
+    
+    blogContent = <BlogTemplate heading={firstBlog.heading} blog={blogContent}/>
+    
+
+    // blogContent = (
+    //   <div>
+    //     <h1>{firstBlog.heading}</h1>
+    //     {jsonContent.map((x, index) => (
+    //       <div key={index}>{JSON.stringify(x)}</div>
+    //     ))}
+    //   </div>
+    // );
   }
 
   return (
