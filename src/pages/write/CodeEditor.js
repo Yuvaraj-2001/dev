@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Editor } from "@monaco-editor/react";
 
 function CodeEditor({ value, onUpdate }) {
@@ -25,9 +25,8 @@ function CodeEditor({ value, onUpdate }) {
         onUpdate({ ...value });
     };
 
-    // Handle input changes
+    // Handle input changes (directly updates the object and triggers onUpdate)
     const handleInputChange = (e, field) => {
-        debugger
         value[field] = e.target.value;
         onUpdate({ ...value });
     };
