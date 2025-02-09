@@ -96,11 +96,11 @@ export default function Header() {
                                         <span className="text-purple-500">#</span> Login
                                     </NavLink>
                                 </li> */}
-                                {/* <li>
+                                <li>
                                     <NavLink to="/write" className={getActiveClass}>
                                         <span className="text-purple-500">#</span> Write
                                     </NavLink>
-                                </li> */}
+                                </li>
                             </ul>
                         </nav>
                     </div>
