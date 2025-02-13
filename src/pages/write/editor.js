@@ -13,9 +13,22 @@ function reducer(state, action) {
                 {
                     id: Date.now(),
                     type: "image",
-                    // TODO: write the code
+                    image: "",
+                    link: "",
+                    btn: "",
                 },
             ];
+
+        case "updateImage":
+            return state.map((item) =>
+                item.id === action.id ? { ...item, image: action.payload.image } : item
+            );
+
+        case "updateImageFields":
+            return state.map((item) =>
+                item.id === action.id ? { ...item, ...action.payload } : item
+            );
+
         case "code":
             return [
                 ...state,
@@ -31,9 +44,7 @@ function reducer(state, action) {
 
         case "codeEdit":
             return state.map((item) =>
-                item.id === action.id
-                    ? { ...item, ...action.payload }
-                    : item
+                item.id === action.id ? { ...item, ...action.payload } : item
             );
 
         case "content":
@@ -66,17 +77,11 @@ function Editor({ blurChange }) {
     }, [allEditor]);
 
     const removeIndex = (id) => {
-        setEditor({
-            type: "remove",
-            payload: { id },
-        });
+        setEditor({ type: "remove", payload: { id } });
     };
 
     const addContent = () => {
-        setEditor({
-            type: "content",
-            payload: { content: "" },
-        });
+        setEditor({ type: "content", payload: { content: "" } });
     };
 
     const addCodeEditor = () => {
@@ -87,18 +92,7 @@ function Editor({ blurChange }) {
     };
 
     const addImgEditor = () => {
-        setEditor({
-            type: "image",
-            payload: { image: "", link: "", btn: "" },
-        });
-    };
-
-    const editFromCodeEditor = (value) => {
-        setEditor({
-            type: "codeEdit",
-            id: value.id,
-            payload: value,
-        });
+        setEditor({ type: "image" });
     };
 
     return (
@@ -128,7 +122,13 @@ function Editor({ blurChange }) {
                             value={editor}
                             index={editor.id}
                             remove={removeIndex}
-                            onUpdate={editFromCodeEditor}
+                            onUpdate={(value) =>
+                                setEditor({
+                                    type: "codeEdit",
+                                    id: value.id,
+                                    payload: value,
+                                })
+                            }
                         />
                     );
                 }
@@ -139,7 +139,13 @@ function Editor({ blurChange }) {
                             value={editor}
                             index={editor.id}
                             remove={removeIndex}
-                            // onUpdate={editFromCodeEditor}
+                            onUpdate={(id, data) =>
+                                setEditor({
+                                    type: "updateImageFields",
+                                    id,
+                                    payload: data,
+                                })
+                            }
                         />
                     );
                 }
@@ -153,7 +159,9 @@ function Editor({ blurChange }) {
                 <button className="p-5 border border-purple-300" onClick={addContent}>
                     Content
                 </button>
-                <button className="p-5 border border-purple-300" onClick={addImgEditor}>Image</button>
+                <button className="p-5 border border-purple-300" onClick={addImgEditor}>
+                    Image
+                </button>
             </div>
         </div>
     );
