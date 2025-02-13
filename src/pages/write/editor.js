@@ -1,11 +1,21 @@
 import { useEffect, useReducer } from "react";
 import ContentEditor from "./ContentEditor";
 import CodeEditor from "./CodeEditor";
+import ImgEditor from "./imgEditor.js";
 
 const initialState = [];
 
 function reducer(state, action) {
     switch (action.type) {
+        case "image":
+            return [
+                ...state,
+                {
+                    id: Date.now(),
+                    type: "image",
+                    // TODO: write the code
+                },
+            ];
         case "code":
             return [
                 ...state,
@@ -76,6 +86,13 @@ function Editor({ blurChange }) {
         });
     };
 
+    const addImgEditor = () => {
+        setEditor({
+            type: "image",
+            payload: { image: "", link: "", btn: "" },
+        });
+    };
+
     const editFromCodeEditor = (value) => {
         setEditor({
             type: "codeEdit",
@@ -115,6 +132,17 @@ function Editor({ blurChange }) {
                         />
                     );
                 }
+                if (editor.type === "image") {
+                    return (
+                        <ImgEditor
+                            key={editor.id}
+                            value={editor}
+                            index={editor.id}
+                            remove={removeIndex}
+                            // onUpdate={editFromCodeEditor}
+                        />
+                    );
+                }
                 return null;
             })}
 
@@ -125,7 +153,7 @@ function Editor({ blurChange }) {
                 <button className="p-5 border border-purple-300" onClick={addContent}>
                     Content
                 </button>
-                <button className="p-5 border border-purple-300">Image</button>
+                <button className="p-5 border border-purple-300" onClick={addImgEditor}>Image</button>
             </div>
         </div>
     );
