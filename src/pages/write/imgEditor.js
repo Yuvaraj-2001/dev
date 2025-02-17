@@ -31,7 +31,7 @@ export default function ImageEditor({ value, index, remove, onUpdate }) {
                 <input type="file" accept="image/png, image/jpeg, image/jpg" onChange={handleImageUpload} />
                 
                 {base64Image && (
-                    <img src={base64Image} className="w-32 h-32 object-cover border border-gray-300" alt="Preview" />
+                    <img src={base64Image} className="w-[500px] h-[350px] object-cover border border-gray-300" alt="Preview" />
                 )}
 
                 <input

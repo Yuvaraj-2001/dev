@@ -25,15 +25,15 @@ h3.blog-template-div{
     padding-bottom: 10px;
     font-size: 26px !important;
     font-weight: 800;
-    color: #a855f8;
+    color: #c084fc;
 
 }
 
 code {
-    /* background: #fdfdfd;
-    color: black; */
+    /* background: #fdfdfd; */
+    color: black; 
     background: #ffffff;
-    color: #a855f8;
+    /* color: #a855f8; */
     border-radius: 5px;
     font-size: 15px;
 }

@@ -83,7 +83,7 @@ function BlogTemplate({ blog, heading }) {
 
     return (
         <div className="p-5">
-            <h1 className="text-purple-400 text-3.5r py-5">{heading}</h1>
+            <h1 className="text-purple-500 font-bold text-3.5r py-5 pb-10">{heading}</h1>
             {blogContent}
         </div>
     );
