@@ -19,9 +19,9 @@ function BlogTemplate({ blog, heading }) {
         } else if (b.type === 'subheading') {
             const cleanHtml = DOMPurify.sanitize(b.content);
             return (
-                <div className='blog-template-div' key={b.id}>
-                    <h3 dangerouslySetInnerHTML={{ __html: cleanHtml }}></h3>
-                </div>
+            
+                <h3 className='blog-template-div' key={b.id} dangerouslySetInnerHTML={{ __html: cleanHtml }}></h3>
+                
             );
         } else if (b.type === 'code') {
             return (

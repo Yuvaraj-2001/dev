@@ -6,6 +6,7 @@ function CodeEditor({ value, onUpdate, remove, index }) {
 
     // Handle editor changes
     const handleEditorChange = (newValue) => {
+        
         value.code = newValue;
         onUpdate({ ...value });
     };
@@ -14,6 +15,7 @@ function CodeEditor({ value, onUpdate, remove, index }) {
     const handleEditorDidMount = (editor) => {
         editorRef.current = editor;
         editor.onDidBlurEditorText(() => {
+            
             value.code = editor.getValue();
             onUpdate({ ...value });
         });
@@ -22,6 +24,7 @@ function CodeEditor({ value, onUpdate, remove, index }) {
     // Handle language switch on button click
     const handleLanguageChange = (newLang) => {
         value.codeType = newLang;
+        
         onUpdate({ ...value });
     };
 

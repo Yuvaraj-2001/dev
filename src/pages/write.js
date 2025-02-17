@@ -63,7 +63,7 @@ function WriteBlog(){
            let collectionID = collectionResponse.data.id;
            const blogResponse = await sendBlog({...data, collectionId: collectionID});
             console.log(blogResponse);
-            dispatch({ type:'reset' });  // Reset the form state after publishing the blog.
+            // dispatch({ type:'reset' });  // Reset the form state after publishing the blog.
         }
         sendCollectionAndPublish();
 

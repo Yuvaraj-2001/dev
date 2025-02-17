@@ -17,11 +17,23 @@ html{
 }
 
 .blog-template-div ~ div{
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 
-.blog-template-div h3{
+h3.blog-template-div{
     padding-top: 20px;
+    padding-bottom: 10px;
     font-size: 26px !important;
     font-weight: 800;
+    color: #a855f8;
+
+}
+
+code {
+    /* background: #fdfdfd;
+    color: black; */
+    background: #ffffff;
+    color: #a855f8;
+    border-radius: 5px;
+    font-size: 15px;
 }

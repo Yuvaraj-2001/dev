@@ -43,6 +43,7 @@ function reducer(state, action) {
             ];
 
         case "codeEdit":
+            debugger
             return state.map((item) =>
                 item.id === action.id ? { ...item, ...action.payload } : item
             );
@@ -83,6 +84,7 @@ function Editor({ blurChange }) {
     const [allEditor, setEditor] = useReducer(reducer, initialState);
 
     useEffect(() => {
+        debugger
         blurChange(allEditor);
     }, [allEditor]);
 
@@ -136,13 +138,14 @@ function Editor({ blurChange }) {
                             value={editor}
                             index={editor.id}
                             remove={removeIndex}
-                            onUpdate={(value) =>
+                            onUpdate={(value) =>{
+                                debugger
                                 setEditor({
                                     type: "codeEdit",
                                     id: value.id,
                                     payload: value,
                                 })
-                            }
+                            }}
                         />
                     );
                 }
