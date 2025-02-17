@@ -16,6 +16,13 @@ function BlogTemplate({ blog, heading }) {
                     <div dangerouslySetInnerHTML={{ __html: cleanHtml }}></div>
                 </div>
             );
+        } else if (b.type === 'subheading') {
+            const cleanHtml = DOMPurify.sanitize(b.content);
+            return (
+                <div className='blog-template-div' key={b.id}>
+                    <h3 dangerouslySetInnerHTML={{ __html: cleanHtml }}></h3>
+                </div>
+            );
         } else if (b.type === 'code') {
             return (
                 <div key={b.id}>
@@ -27,7 +34,7 @@ function BlogTemplate({ blog, heading }) {
                         options={{ readOnly: true }} 
                     />
                     <div className='flex justify-center items-center gap-4'>
-                        <span>Source:</span>
+                    {b.link && <span>Source:</span> }
                         {b.link && (
                             <button 
                                 className='p-3 text-1r border border-purple-400 rounded' 
@@ -76,7 +83,7 @@ function BlogTemplate({ blog, heading }) {
 
     return (
         <div className="p-5">
-            <h1 className="text-purple-400 text-2.5r py-5">{heading}</h1>
+            <h1 className="text-purple-400 text-3.5r py-5">{heading}</h1>
             {blogContent}
         </div>
     );

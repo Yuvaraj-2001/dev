@@ -57,6 +57,16 @@ function reducer(state, action) {
             return state.map((item) =>
                 item.id === action.id ? { ...item, content: action.payload.content } : item
             );
+        case "subheading":
+            return [
+                ...state,
+                { id: Date.now(), type: "subheading", content: action.payload.content },
+            ];
+
+        case "subheadingEdit":
+            return state.map((item) =>
+                item.id === action.id ? { ...item, content: action.payload.content } : item
+            );
 
         case "remove":
             return state.filter((item) => item.id !== action.payload.id);
@@ -84,6 +94,10 @@ function Editor({ blurChange }) {
         setEditor({ type: "content", payload: { content: "" } });
     };
 
+    const addSubhead = () => {
+        setEditor({ type: "subheading", payload: { content: "" } });
+    };
+
     const addCodeEditor = () => {
         setEditor({
             type: "code",
@@ -98,7 +112,7 @@ function Editor({ blurChange }) {
     return (
         <div>
             {allEditor.map((editor) => {
-                if (editor.type === "content") {
+                if (editor.type === "content" || editor.type === "subheading") {
                     return (
                         <ContentEditor
                             key={editor.id}
@@ -107,7 +121,7 @@ function Editor({ blurChange }) {
                             remove={removeIndex}
                             handleChange={(value) =>
                                 setEditor({
-                                    type: "contentEdit",
+                                    type: editor.type === "subheading" ? 'subheadingEdit' : "contentEdit",
                                     id: editor.id,
                                     payload: { content: value },
                                 })
@@ -158,6 +172,9 @@ function Editor({ blurChange }) {
                 </button>
                 <button className="p-5 border border-purple-300" onClick={addContent}>
                     Content
+                </button>
+                <button className="p-5 border border-purple-300" onClick={addSubhead}>
+                    Subheading
                 </button>
                 <button className="p-5 border border-purple-300" onClick={addImgEditor}>
                     Image

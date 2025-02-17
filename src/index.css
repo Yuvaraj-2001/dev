@@ -15,3 +15,13 @@ html{
 .blog-template-div{
     font-size: 20px;
 }
+
+.blog-template-div ~ div{
+    padding-bottom: 10px;
+}
+
+.blog-template-div h3{
+    padding-top: 20px;
+    font-size: 26px !important;
+    font-weight: 800;
+}

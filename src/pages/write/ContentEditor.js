@@ -60,7 +60,7 @@ const MediumLikeEditor = ({handleChange, value, index, remove}) => {
 
   return (
     <div className="mt-5">
-      <button className="border border-red-400 p-2 rounded" onClick={() => remove(index)}>Remove</button> {index}
+      <button className={`border ${value.type === "subheading" ? 'border-green-400' :'border-red-400'} p-2 rounded`} onClick={() => remove(index)}>Remove</button> {index}
       <div
         ref={editorRef}
         contentEditable
@@ -69,10 +69,10 @@ const MediumLikeEditor = ({handleChange, value, index, remove}) => {
         onMouseUp={handleTextSelection}
         className="text-3r contentEdit"
         style={{
-          border: "1px solid #ccc",
+          border: `${value.type === "subheading" ? '1px solid green' :'1px solid #ccc'}`,
           padding: "10px",
           borderRadius: "5px",
-          minHeight: "150px",
+          minHeight: `${value.type === "subheading" ? '50px' : '100px'}`,
           cursor: "text",
         }}
       >
