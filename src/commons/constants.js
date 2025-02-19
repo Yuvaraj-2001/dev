@@ -346,12 +346,12 @@ export const stackblitz = {
         {
             title: 'Javascript Concepts',
             description: 'To refresh your javascript core concepts. Yayy!',
-            url: 'https://stackblitz.com/@Yuvaraj-2001/collections/rxjs-02-pipable-operators'
+            url: 'https://stackblitz.com/@Yuvaraj-2001/collections/javascript-tasks-and-concepts'
         },
         {
             title: 'Javascript Common Methods',
             description: 'Some of the common methods to help you while coding',
-            url: 'https://stackblitz.com/@Yuvaraj-2001/collections/rxjs-02-pipable-operators'
+            url: 'https://stackblitz.com/@Yuvaraj-2001/collections/javascript-common-methods'
         }
     ]
 };
