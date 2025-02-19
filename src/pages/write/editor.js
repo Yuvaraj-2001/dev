@@ -43,7 +43,6 @@ function reducer(state, action) {
             ];
 
         case "codeEdit":
-            debugger
             return state.map((item) =>
                 item.id === action.id ? { ...item, ...action.payload } : item
             );
@@ -84,7 +83,6 @@ function Editor({ blurChange }) {
     const [allEditor, setEditor] = useReducer(reducer, initialState);
 
     useEffect(() => {
-        debugger
         blurChange(allEditor);
     }, [allEditor]);
 
@@ -103,7 +101,7 @@ function Editor({ blurChange }) {
     const addCodeEditor = () => {
         setEditor({
             type: "code",
-            payload: { code: "", codeType: "javascript", link: "", btn: "" },
+            payload: { code: "", codeType: "html", link: "", btn: "" },
         });
     };
 

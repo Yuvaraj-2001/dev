@@ -12,7 +12,7 @@ function BlogTemplate({ blog, heading }) {
         if (b.type === 'content') {
             const cleanHtml = DOMPurify.sanitize(b.content);
             return (
-                <div className='blog-template-div' key={b.id}>
+                <div className='blog-template-div text-slate-400' key={b.id}>
                     <div dangerouslySetInnerHTML={{ __html: cleanHtml }}></div>
                 </div>
             );
@@ -20,7 +20,7 @@ function BlogTemplate({ blog, heading }) {
             const cleanHtml = DOMPurify.sanitize(b.content);
             return (
             
-                <h3 className='blog-template-div' key={b.id} dangerouslySetInnerHTML={{ __html: cleanHtml }}></h3>
+                <h3 className='blog-template-div text-white' key={b.id} dangerouslySetInnerHTML={{ __html: cleanHtml }}></h3>
                 
             );
         } else if (b.type === 'code') {
@@ -33,14 +33,13 @@ function BlogTemplate({ blog, heading }) {
                         onMount={handleEditorDidMount} 
                         options={{ readOnly: true }} 
                     />
-                    <div className='flex justify-center items-center gap-4'>
-                    {b.link && <span>Source:</span> }
+                    <div className='flex justify-center items-center gap-4 pt-4'>
                         {b.link && (
                             <button 
-                                className='p-3 text-1r border border-purple-400 rounded' 
+                                className='p-3 text-1.5r border border-purple-400 rounded' 
                                 onClick={() => redirect(b.link)}
                             >
-                                {b.btn}
+                                {b.btn || 'Source'}
                             </button>
                         )}
                     </div>
@@ -83,7 +82,7 @@ function BlogTemplate({ blog, heading }) {
 
     return (
         <div className="p-5">
-            <h1 className="text-purple-500 font-bold text-3.5r py-5 pb-10">{heading}</h1>
+            <h1 className="text-purple-400 font-bold text-3.5r py-5 pb-10">{heading}</h1>
             {blogContent}
         </div>
     );
