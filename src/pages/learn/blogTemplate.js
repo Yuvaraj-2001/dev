@@ -26,13 +26,16 @@ function BlogTemplate({ blog, heading }) {
         } else if (b.type === 'code') {
             return (
                 <div key={b.id}>
-                    <Editor 
-                        theme="vs-dark" 
-                        language={b.codeType}  
-                        value={b.code}  
-                        onMount={handleEditorDidMount} 
-                        options={{ readOnly: true }} 
-                    />
+                    <div className='rounded-lg overflow-hidden border border-gray-700'>
+                        <Editor 
+                            theme="vs-dark" 
+                            language={b.codeType}  
+                            value={b.code}  
+                            onMount={handleEditorDidMount} 
+                            options={{ readOnly: true }} 
+                        />
+                    </div>
+                    
                     <div className='flex justify-center items-center gap-4 pt-4'>
                         {b.link && (
                             <button 

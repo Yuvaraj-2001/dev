@@ -3,42 +3,45 @@ import { Editor } from "@monaco-editor/react";
 
 function CodeEditor({ value, onUpdate, remove, index }) {
     const editorRef = useRef(null);
+    const latestValueRef = useRef(value); // Store the latest value reference
+
+    // Update the ref whenever value changes
+    latestValueRef.current = value;
 
     // Handle editor changes
     const handleEditorChange = (newValue) => {
-        
-        value.code = newValue;
-        onUpdate({ ...value });
+        latestValueRef.current.code = newValue;
+        onUpdate({ ...latestValueRef.current });
     };
 
     // Handle blur (update parent state)
     const handleEditorDidMount = (editor) => {
         editorRef.current = editor;
         editor.onDidBlurEditorText(() => {
-            
-            value.code = editor.getValue();
-            onUpdate({ ...value });
+            latestValueRef.current.code = editor.getValue();
+            onUpdate({ ...latestValueRef.current }); // Use the latest reference
         });
     };
 
     // Handle language switch on button click
     const handleLanguageChange = (newLang) => {
-        value.codeType = newLang;
-        
-        onUpdate({ ...value });
+        latestValueRef.current.codeType = newLang;
+        onUpdate({ ...latestValueRef.current });
     };
 
-    // Handle input changes (directly updates the object and triggers onUpdate)
+    // Handle input changes
     const handleInputChange = (e, field) => {
-        value[field] = e.target.value;
-        onUpdate({ ...value });
+        latestValueRef.current[field] = e.target.value;
+        onUpdate({ ...latestValueRef.current });
     };
 
     return (
         <div className="border border-slate-200 p-4 mt-3">
+          <button className="border border-red-400 p-2 rounded" onClick={() => remove(index)}>
+                Remove
+            </button>
+            {index}
 
-          <button className="border border-red-400 p-2 rounded" onClick={() => remove(index)}>Remove</button> {index}
-            
             {/* Buttons to switch language */}
             <div className="flex gap-3 cursor-pointer mb-3">
                 {["html", "css", "javascript"].map((lang) => (

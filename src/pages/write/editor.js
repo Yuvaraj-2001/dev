@@ -137,7 +137,6 @@ function Editor({ blurChange }) {
                             index={editor.id}
                             remove={removeIndex}
                             onUpdate={(value) =>{
-                                debugger
                                 setEditor({
                                     type: "codeEdit",
                                     id: value.id,
