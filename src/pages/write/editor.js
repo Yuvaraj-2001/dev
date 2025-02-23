@@ -101,7 +101,7 @@ function Editor({ blurChange }) {
     const addCodeEditor = () => {
         setEditor({
             type: "code",
-            payload: { code: "", codeType: "html", link: "", btn: "" },
+            payload: { code: "", codeType: "html", link: "", btn: "Try on Stackblitz" },
         });
     };
 
