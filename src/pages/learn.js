@@ -20,10 +20,11 @@ export default function Blogs() {
   // Effect to fetch blog after collections load
   useEffect(() => {
     if (collections && collections.length > 0 && !urlBlogID) {
-      const firstBlogID = btoa(collections[0].id); 
-      setBlogID(firstBlogID);
-      setSearchParams({ id: learnID, blog: firstBlogID });
+      // const firstBlogID = btoa(collections[0].id); 
+      // setBlogID(firstBlogID);
+      setSearchParams({ id: learnID });
     }
+    
   }, [collections, urlBlogID, learnID]);
 
   // Handle click on a collection item
