@@ -4,24 +4,15 @@ import { skills, featured } from "../commons/constants";
 import { FaWhatsapp } from 'react-icons/fa';
 import { MdEmail } from "react-icons/md";
 import {useNavigate} from 'react-router-dom';
-
+import Download from "./ui-reusables/Download";
 
 export default function Home(){
   const navigate = useNavigate();
 
   const redirectToLink = (path) => {
-    debugger
     navigate(path)
   }
-  const handleDownload = () => {
-    const resumeUrl = "/assets/YUVARAJ_FRONTEND_DEVELOPER.pdf"; // Path relative to public folder
-    const link = document.createElement("a");
-    link.href = resumeUrl;
-    link.download = "YUVARAJ_FRONTEND_DEVELOPER.pdf"; // Set custom file name for download
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+
 
     return <div className="">
       <div className="py-3r flex gap-10 justify-between">
@@ -29,8 +20,8 @@ export default function Home(){
             <div>   
             <h1 className="pb-2r text-4r mob:text-mainm1">Hi, I'm <span className="text-purple-400">Yuvaraj </span> – Frontend Engineer & UI Specialist</h1>
                 <p className="pb-3r leading-tight font-extralight text-2r">With <span className="text-purple-400">6.5+ years</span> of experience in frontend development, I specialize in crafting high-performance, scalable, and user-friendly web applications. My expertise spans across <span className="text-purple-400">Angular</span>, <span className="text-purple-400">Vue.js</span>, and <span className="text-purple-400">React</span>, ensuring businesses can build, optimize, or migrate old application to new UI framework.</p>
-                <button className="p-1r px-5 border border-solid bg-purple-500 text-1.5r" onClick={handleDownload}>Download Resume</button>
-                <button className="p-1r px-5 border border-solid border-purple-500 text-1.5r ml-5">Connect me!!</button>
+                <Download />
+                <button className="p-1r px-5 border border-solid border-purple-500 text-1.5r ml-5" onClick={() => redirectToLink('connect')}>Connect me!!</button>
             </div>
         </div>
         <div className="profile-pic w-full">
@@ -88,7 +79,7 @@ export default function Home(){
         </div>
       </div>
       <div className="py-3r">
-        <Heading icon="#" text="Connect me" line={true} onClick={() => redirectToLink('about')}/>  
+        <Heading icon="#" text="Connect me" line={true} onClick={() => redirectToLink('connect')}/>  
         <div className="flex justify-between">
               
                <div className="w-full flex gap-6">

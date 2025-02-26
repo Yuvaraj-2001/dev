@@ -4,6 +4,7 @@ import { MdEmail } from "react-icons/md";
 import Stackblitz from '../icons/Stackblitz';
 import {socials} from "../commons/constants";
 import {redirect} from "../commons/common-method";
+import Download from "./ui-reusables/Download";
 
 
 export default function Connect() {
@@ -12,7 +13,9 @@ export default function Connect() {
         <Heading icon="/" text="Contact " line={true} />
         <div className="flex justify-between">
                <div className="w-full">
-                    <p className="text-slate-400 text-1.5r">I’m interested in developing ideas that bring life to application, if you have a opportunity that aligns with our goals let's connect!</p>
+                    <p className="text-slate-400 text-1.5r mb-2r">I’m interested in developing ideas that bring life to application, if you have a opportunity that aligns with our goals let's connect!</p>
+                    <Download />
+
                 </div> 
                <div className="w-full flex gap-6">
                     <div className="border border-slate-400 p-1.5r w-96">

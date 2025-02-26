@@ -3,6 +3,7 @@ import Heading from "./ui-reusables/Heading";
 import { MdEmail } from "react-icons/md";
 import {useNavigate} from 'react-router-dom';
 import { FaWhatsapp } from 'react-icons/fa';
+import Download from "./ui-reusables/Download";
 
 export default function AboutMe() {
   const navigate = useNavigate();
@@ -17,11 +18,13 @@ return (
 
     <div>
 
-        <p className="pt-3r leading-tight font-extralight text-3r">
+        <p className="pt-3r leading-tight font-extralight text-2r mb-2r">
             Hey, I'm Yuvaraj – a passionate Frontend Engineer with 6.5+ years of experience.
             I specialize in <span className='text-purple-400'>Angular, Vue.js, and React</span>, helping businesses build, optimize,
             and migrate their applications for modern web solutions.
         </p>
+
+        <Download />
 
         <div className='pt-3r'>   
             <Heading icon="-" text="What Do I DO?" />  
