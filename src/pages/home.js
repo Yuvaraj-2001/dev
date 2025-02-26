@@ -3,8 +3,16 @@ import Card from "./ui-reusables/Card";
 import { skills, featured } from "../commons/constants";
 import { FaWhatsapp } from 'react-icons/fa';
 import { MdEmail } from "react-icons/md";
+import {useNavigate} from 'react-router-dom';
+
 
 export default function Home(){
+  const navigate = useNavigate();
+
+  const redirectToLink = (path) => {
+    debugger
+    navigate(path)
+  }
   const handleDownload = () => {
     const resumeUrl = "/assets/YUVARAJ_FRONTEND_DEVELOPER.pdf"; // Path relative to public folder
     const link = document.createElement("a");
@@ -32,7 +40,8 @@ export default function Home(){
 
       <div className="pt-2r">
 
-        <Heading icon="#" text="Portfolio" line={true} arrow="View all"/>
+        <Heading icon="#" text="Portfolio" line={true} arrow="View all" onClick={() => redirectToLink('portfolio')}/>
+       
         <div className="flex gap-5 justify-between py-2r">
           <Card props={featured.tred}/>
           <Card props={featured.pitchpro}/>
@@ -66,12 +75,12 @@ export default function Home(){
       </div>
 
       <div className="py-3r">
-        <Heading icon="#" text="about-me" line={true}/>  
+        <Heading icon="#" text="about-me" line={true} onClick={() => redirectToLink('about')}/>  
         <div className="flex pt-2r gap-4"> 
           <div className="w-full">
               <p className="text-2r text-slate-400 leading-snug">I focus on aligning web technical solutions with business UI goals, ensuring that every project meets both functionality and UI needs. From crafting intuitive user interfaces to writing clean, maintainable code, I prioritize efficiency and user experience at every stage.</p>
               <p className="pt-4r text-2r text-slate-400 leading-snug">Beyond development, I emphasize quality assurance, performance optimization, and seamless deployments. Whether it’s refining existing features or launching new applications, I ensure everything runs smoothly, delivering scalable and reliable solutions for easy long term suport.</p>
-              <p className="pt-2r text-2r text-purple-400 leading-snug">Click here to learn more about me and my workflow</p>
+              <p className="pt-2r text-2r text-purple-400 leading-snug" onClick={() => redirectToLink('about')}>Click here to learn more about me and my workflow</p>
           </div>
           <div className="w-full">
             <img className="h-full w-full" alt="yuvaraj" src="/assets/profile/yuvaraj.png"/>
@@ -79,7 +88,7 @@ export default function Home(){
         </div>
       </div>
       <div className="py-3r">
-        <Heading icon="#" text="Connect me" line={true}/>  
+        <Heading icon="#" text="Connect me" line={true} onClick={() => redirectToLink('about')}/>  
         <div className="flex justify-between">
               
                <div className="w-full flex gap-6">

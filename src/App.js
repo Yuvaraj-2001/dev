@@ -9,6 +9,7 @@ import Medium from './pages/medium';
 import Stackblitz from './pages/stackblitz';
 import Contact from './pages/connect-me';
 import Write from './pages/write';
+import About from './pages/about';
 
 import Footer from './stable-components/Footer';
 
@@ -24,6 +25,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/connect" element={<Contact />} />
+            <Route path="/about" element={<About />} />
             <Route path="/medium" element={<Medium />} />
             <Route path="/stackblitz" element={<Stackblitz />} />
             <Route path="/learn" element={<Learn />} />
