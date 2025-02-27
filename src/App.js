@@ -33,7 +33,10 @@ function App() {
           </Routes>
 
       </div>
-      <Footer/>
+      <div className='mt-20'></div>
+      <div className='sticky bottom-0 bg-gray-800'>
+        <Footer/>
+      </div>
     </div>
   );
 }

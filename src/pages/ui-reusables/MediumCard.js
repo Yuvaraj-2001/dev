@@ -2,7 +2,7 @@ import { redirect } from "../../commons/common-method";
 export default function Card({props, border}){
 
 
-    return <div className={`border border-${ border ? border : 'purple-400'} w-1/2`}>
+    return <div className={`border border-${ border ? border : 'purple-400'} w-full`}>
         
         {
             props.title &&

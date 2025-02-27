@@ -11,7 +11,7 @@ export default function Connect() {
     return (
         <div className="py-6">
         <Heading icon="/" text="Contact " line={true} />
-        <div className="flex justify-between">
+        <div className="flex justify-between mob:flex-wrap gap-6">
                <div className="w-full">
                     <p className="text-slate-400 text-1.5r mb-2r">I’m interested in developing ideas that bring life to application, if you have a opportunity that aligns with our goals let's connect!</p>
                     <Download />

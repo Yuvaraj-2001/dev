@@ -15,7 +15,7 @@ export default function Home(){
 
 
     return <div className="">
-      <div className="py-3r flex gap-10 justify-between">
+      <div className="py-3r flex gap-10 justify-between mob:flex-col-reverse">
         <div className="flex flex-col justify-center w-full">
             <div>   
             <h1 className="pb-2r text-4r mob:text-mainm1">Hi, I'm <span className="text-purple-400">Yuvaraj </span> – Frontend Engineer & UI Specialist</h1>
@@ -33,7 +33,7 @@ export default function Home(){
 
         <Heading icon="#" text="Portfolio" line={true} arrow="View all" onClick={() => redirectToLink('portfolio')}/>
        
-        <div className="flex gap-5 justify-between py-2r">
+        <div className="flex gap-5 justify-between py-2r mob:flex-wrap">
           <Card props={featured.tred}/>
           <Card props={featured.pitchpro}/>
           <Card props={featured.yuvidev}/>
@@ -47,7 +47,7 @@ export default function Home(){
                 <img className="pt-4 h-96" alt="skill" src="/assets/skill.png" />
               </div> */}
               <div className="w-full flex-grow">
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 flex-wrap gap-3">
                     <Card  props={skills.language}/>
                     <Card  props={skills.framework}/>
                     <Card props={skills.database}/>
@@ -67,7 +67,7 @@ export default function Home(){
 
       <div className="py-3r">
         <Heading icon="#" text="about-me" line={true} onClick={() => redirectToLink('about')}/>  
-        <div className="flex pt-2r gap-4"> 
+        <div className="flex pt-2r gap-4 mob:flex-wrap"> 
           <div className="w-full">
               <p className="text-2r text-slate-400 leading-snug">I focus on aligning web technical solutions with business UI goals, ensuring that every project meets both functionality and UI needs. From crafting intuitive user interfaces to writing clean, maintainable code, I prioritize efficiency and user experience at every stage.</p>
               <p className="pt-4r text-2r text-slate-400 leading-snug">Beyond development, I emphasize quality assurance, performance optimization, and seamless deployments. Whether it’s refining existing features or launching new applications, I ensure everything runs smoothly, delivering scalable and reliable solutions for easy long term suport.</p>
