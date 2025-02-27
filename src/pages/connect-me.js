@@ -63,7 +63,7 @@ export default function Connect() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-2">
                 <div className="flex items-center gap-3 border border-slate-400" onClick={() => redirect(socials.stackblitz)}>
                     <Stackblitz />
-                    <div className="text-2r">Github</div>
+                    <div className="text-2r">Stackblitz</div>
                 </div>
                <div className="flex items-center gap-3 border border-slate-400 p-4">
                     <svg onClick={() => redirect(socials.github)} xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-github" viewBox="0 0 16 16">
