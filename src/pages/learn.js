@@ -70,10 +70,10 @@ export default function Blogs() {
   return (
     <div>
       <div className="flex">
-        <div className="w-1/5">
+        <div className="w-1/5 mob:w-10">
           <ul>{collectionContent}</ul>
         </div>
-        <div className="w-3/5">{blogContent}</div>
+        <div className="w-3/5 mob:w-full">{blogContent}</div>
       </div>
     </div>
   );
