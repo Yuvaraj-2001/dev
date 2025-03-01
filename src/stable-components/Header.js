@@ -39,15 +39,15 @@ export default function Header() {
     <div className="w-full fixed bg-gray-800 border-b border-double border-purple-500 z-50">
       <div className="container mx-auto">
         <div className="w-full py-5 px-6 flex justify-between items-center">
-          <div className="text-white text-h1 flex gap-4">
+          <div className="text-white text-h1 flex gap-4 items-center">
             <NavLink to="/" className="hover:text-white">YUVARAJ</NavLink>
             <ul>
                 <li className="relative des:hidden">
-                    <div className="flex items-center gap-2 cursor-pointer bg-purple-500 px-4 py-1 rounded-lg" onClick={toggleMenu}>
+                    <div className="flex items-center gap-2 cursor-pointer bg-purple-500 px-4 py-1 rounded-lg text-2r" onClick={toggleMenu}>
                     Learn {!isOpen ? <FaChevronDown size={15} /> : <FaChevronUp size={15} />}
                     </div>
                     {isOpen && (
-                    <ul className="absolute left-0 mt-2 bg-slate-500 border-2 border-slate-200 p-2 rounded-lg">{content}</ul>
+                    <ul className="absolute left-0 mt-2 bg-slate-500 border-2 border-slate-200 p-2 text-2r rounded-lg">{content}</ul>
                     )}
                 </li>
             </ul>
@@ -88,14 +88,14 @@ export default function Header() {
             <li><NavLink to="/" className={getActiveClass} onClick={toggleMobileMenu}>Home</NavLink></li>
             <li><NavLink to="/portfolio" className={getActiveClass} onClick={toggleMobileMenu}>Portfolio</NavLink></li>
             <li><NavLink to="/about" className={getActiveClass} onClick={toggleMobileMenu}>About Me</NavLink></li>
-            <li className="relative">
+            {/* <li className="relative">
               <div className="flex items-center gap-2 cursor-pointer bg-purple-500 px-4 py-1 rounded-lg" onClick={toggleMenu}>
                 Learn {!isOpen ? <FaChevronDown size={15} /> : <FaChevronUp size={15} />}
               </div>
               {isOpen && (
                 <ul className="bg-slate-500 border-2 border-slate-200 p-2 rounded-lg">{content}</ul>
               )}
-            </li>
+            </li> */}
             <li><NavLink to="/medium" className={getActiveClass} onClick={toggleMobileMenu}>Medium Blogs</NavLink></li>
             <li><NavLink to="/stackblitz" className={getActiveClass} onClick={toggleMobileMenu}>Stackblitz Code</NavLink></li>
             <li><NavLink to="/connect" className={getActiveClass} onClick={toggleMobileMenu}>Connect Me</NavLink></li>
