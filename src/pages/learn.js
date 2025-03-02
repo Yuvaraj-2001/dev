@@ -21,7 +21,6 @@ export default function Blogs() {
   useEffect(() => {
     if (collections && collections.length > 0) {
       const firstBlogID = collections[0].id; 
-      debugger
       handleBlogSelect(firstBlogID);
       // setSearchParams({ id: learnID, blog: firstBlogID });
     }
@@ -30,7 +29,6 @@ export default function Blogs() {
 
   // Handle click on a collection item
   const handleBlogSelect = (topics_id) => {
-    debugger
     const encodedBlogID = btoa(topics_id);
     setBlogID(encodedBlogID);
     setSearchParams({ id: learnID, blog: encodedBlogID });

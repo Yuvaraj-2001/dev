@@ -38,7 +38,7 @@ function App() {
 
       </div>
       <div className='mt-20'></div>
-      <div className='fixed z-20 bottom-96 right-20 bg-purple-400 border border-slate-400 flex flex-col items-center p-4 rounded' onClick={() => redirect('https://buymeacoffee.com/yuvidev')} >  <img 
+      <div className='fixed z-20 bottom-80 right-20 bg-purple-400 border border-slate-400 flex flex-col items-center p-4 rounded' onClick={() => redirect('https://buymeacoffee.com/yuvidev')} >  <img 
           src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" 
           alt="Buy Me a Coffee" 
           className="h-12"
