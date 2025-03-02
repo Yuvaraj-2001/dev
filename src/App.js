@@ -1,6 +1,8 @@
 import './App.css';
 import Header from './stable-components/Header.js'
+import {BiCoffee} from "react-icons/bi";
 import { Routes, Route } from 'react-router-dom';
+import { redirect } from './commons/common-method';
 
 import Home from './pages/home';
 import Portfolio from './pages/portfolio';
@@ -18,7 +20,7 @@ function App() {
     
     <div className="App bg-gray-800 text-white">
       <Header/> 
-      <div className='container mx-auto mob:px-8 des:px-10 pt-7r'>
+      <div className='container mx-auto mob:px-8 des:px-10 pt-7r pb-28'>
         
        
           <Routes>
@@ -32,9 +34,17 @@ function App() {
             <Route path="/write" element={<Write />} />
           </Routes>
 
+          
+
       </div>
       <div className='mt-20'></div>
-      <div className='sticky z-10 bottom-0 bg-gray-800'>
+      <div className='fixed z-20 bottom-96 right-20 bg-purple-400 border border-slate-400 flex flex-col items-center p-4 rounded' onClick={() => redirect('https://buymeacoffee.com/yuvidev')} >  <img 
+          src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" 
+          alt="Buy Me a Coffee" 
+          className="h-12"
+        />
+        </div>
+      <div className='fixed w-full z-10 bottom-0 bg-gray-800'>
         <Footer/>
       </div>
     </div>
