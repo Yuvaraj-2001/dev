@@ -19,16 +19,18 @@ export default function Blogs() {
 
   // Effect to fetch blog after collections load
   useEffect(() => {
-    if (collections && collections.length > 0 && !urlBlogID) {
-      // const firstBlogID = btoa(collections[0].id); 
-      // setBlogID(firstBlogID);
-      setSearchParams({ id: learnID });
+    if (collections && collections.length > 0) {
+      const firstBlogID = collections[0].id; 
+      debugger
+      handleBlogSelect(firstBlogID);
+      // setSearchParams({ id: learnID, blog: firstBlogID });
     }
     
-  }, [collections, urlBlogID, learnID]);
+  }, [collections]);
 
   // Handle click on a collection item
   const handleBlogSelect = (topics_id) => {
+    debugger
     const encodedBlogID = btoa(topics_id);
     setBlogID(encodedBlogID);
     setSearchParams({ id: learnID, blog: encodedBlogID });
@@ -52,9 +54,9 @@ export default function Blogs() {
     blogContent = <div>Error loading blog</div>;
   } else if (blogData) {
     const firstBlog = blogData[0];
-    blogContent = JSON.parse(firstBlog.content);
+    blogContent = firstBlog && JSON.parse(firstBlog.content) || [];
     
-    blogContent = <BlogTemplate heading={firstBlog.heading} blog={blogContent}/>
+    blogContent = <BlogTemplate heading={firstBlog?.heading} blog={blogContent}/>
     
 
     // blogContent = (
